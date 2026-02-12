@@ -1,26 +1,14 @@
 import type { Metadata } from "next";
 import { LanguageProvider } from "@/lib/language-context";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Artik | Sjónrænar sögur frá norðri — Visual Stories from the North",
+  title: "Artik — Creative Production, Reykjavík",
   description:
-    "Artik is an Icelandic film and video production studio crafting powerful visual narratives. Kvikmynda- og myndbandsverkstæði á Íslandi.",
-  keywords: [
-    "Artik",
-    "Iceland",
-    "film production",
-    "video production",
-    "documentary",
-    "kvikmyndagerð",
-    "Ísland",
-  ],
+    "Artik is a creative production agency based in Reykjavík, Iceland.",
   openGraph: {
-    title: "Artik | Visual Stories from the North",
-    description:
-      "Icelandic film and video production studio crafting powerful visual narratives.",
+    title: "Artik — Creative Production, Reykjavík",
+    description: "Creative production agency based in Reykjavík, Iceland.",
     locale: "is_IS",
     alternateLocale: "en_US",
     type: "website",
@@ -42,16 +30,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
       <body className="antialiased">
-        <LanguageProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

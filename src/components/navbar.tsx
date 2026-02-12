@@ -1,129 +1,31 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
-import { translations } from "@/lib/translations";
 
-export function Navbar() {
-  const { locale, setLocale, t } = useLanguage();
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  const links = [
-    { href: "/", label: t(translations.nav.home) },
-    { href: "/services", label: t(translations.nav.services) },
-    { href: "/about", label: t(translations.nav.about) },
-    { href: "/contact", label: t(translations.nav.contact) },
-  ];
+export function Header() {
+  const { locale, setLocale } = useLanguage();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-void/80 backdrop-blur-md border-b border-ice-white/[0.04]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="text-xl lg:text-2xl font-bold tracking-tight text-ice-white text-glow-fire">
-            ARTIK
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-10 py-5 flex items-center justify-between">
+      {/* Logo */}
+      <Link
+        href="/"
+        className="text-sm font-bold tracking-widest uppercase text-white/80 hover:text-white transition-colors duration-300"
+      >
+        A
+      </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm tracking-wide transition-all duration-300 ${
-                  pathname === link.href
-                    ? "text-ice font-medium text-glow-ice"
-                    : "text-ice-white/60 hover:text-fire"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLocale(locale === "is" ? "en" : "is")}
-              className="ml-4 px-3 py-1.5 text-xs font-medium tracking-wider border border-ice-white/15 rounded-full text-ice-white/60 hover:border-fire/50 hover:text-fire transition-all duration-300"
-              aria-label={
-                locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"
-              }
-            >
-              {locale === "is" ? "EN" : "IS"}
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
-            <button
-              onClick={() => setLocale(locale === "is" ? "en" : "is")}
-              className="px-2.5 py-1 text-xs font-medium tracking-wider border border-ice-white/15 rounded-full text-ice-white/60"
-              aria-label={
-                locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"
-              }
-            >
-              {locale === "is" ? "EN" : "IS"}
-            </button>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              <div className="w-5 flex flex-col gap-1">
-                <span
-                  className={`block h-0.5 bg-ice-white transition-transform duration-300 ${
-                    mobileOpen ? "rotate-45 translate-y-1.5" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 bg-ice-white transition-opacity duration-300 ${
-                    mobileOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 bg-ice-white transition-transform duration-300 ${
-                    mobileOpen ? "-rotate-45 -translate-y-1.5" : ""
-                  }`}
-                />
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-ice-white/[0.04] bg-void/95 backdrop-blur-md overflow-hidden"
-          >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-lg ${
-                    pathname === link.href
-                      ? "text-ice font-medium"
-                      : "text-ice-white/60"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+      {/* Language toggle */}
+      <button
+        onClick={() => setLocale(locale === "is" ? "en" : "is")}
+        className="text-xs tracking-widest text-white/40 hover:text-white transition-colors duration-300"
+        aria-label={
+          locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"
+        }
+      >
+        {locale === "is" ? "EN" : "IS"}
+      </button>
+    </header>
   );
 }

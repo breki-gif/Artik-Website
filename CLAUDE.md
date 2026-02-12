@@ -4,7 +4,9 @@ This file provides context for AI assistants (Claude, Copilot, etc.) working on 
 
 ## Project Overview
 
-Artik Website is a bilingual (Icelandic/English) website for Artik, a boutique creative production agency based in Iceland. The site positions Artik as a creative-forward alternative to larger agencies, with two distinct service offerings (commercial brand work and creative/experimental projects) and a strong Icelandic identity.
+Artik Website is a minimal, bilingual (Icelandic/English) landing page for Artik, a creative production agency based in Reykjavík, Iceland. The site is intentionally stripped down to just two pages: a bold landing page and a contact form.
+
+The design philosophy is Swiss minimalism / brutalist simplicity — black background, white text, bold typography, generous whitespace, zero decoration.
 
 **Repository:** `breki-gif/Artik-Website`
 
@@ -13,125 +15,101 @@ Artik Website is a bilingual (Icelandic/English) website for Artik, a boutique c
 - **Framework:** Next.js 16 (App Router) with React 19
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Font:** Inter (via Google Fonts CDN)
+- **Font:** Inter (700–900 weights via Google Fonts CDN)
 - **Package Manager:** npm
 
 ## Project Structure
 
 ```
 Artik-Website/
-├── CLAUDE.md                    # AI assistant context (this file)
-├── README.md                    # Project documentation
+├── CLAUDE.md
+├── README.md
 ├── package.json
 ├── tsconfig.json
 ├── next.config.ts
 ├── postcss.config.mjs
 ├── eslint.config.mjs
-├── public/
-│   └── projects/                # Project thumbnail images
-│       └── .gitkeep
 └── src/
     ├── app/
-    │   ├── globals.css          # Global styles + Tailwind + color palette
-    │   ├── layout.tsx           # Root layout with providers, navbar, footer
-    │   ├── page.tsx             # Homepage (hero, services preview, pipeline, featured work, CTA)
-    │   ├── services/page.tsx    # Services page (commercial + creative tracks, process)
-    │   ├── about/page.tsx       # About/Studio page (story, team, Iceland identity)
-    │   └── contact/page.tsx     # Contact form page (expanded fields, sidebar)
+    │   ├── globals.css          # Minimal styles (black/white palette)
+    │   ├── layout.tsx           # Root layout with LanguageProvider
+    │   ├── page.tsx             # Landing page ("artik" + CTA button)
+    │   └── contact/page.tsx     # Contact form page
     ├── components/
-    │   ├── navbar.tsx           # Navigation with language toggle
-    │   ├── footer.tsx           # Site footer
-    │   ├── scroll-reveal.tsx    # Scroll-triggered animation wrapper
-    │   └── video-modal.tsx      # Video player modal (YouTube/Vimeo)
+    │   └── navbar.tsx           # Minimal header (logo "A" + language toggle)
     └── lib/
-        ├── language-context.tsx # React context for bilingual support
-        └── translations.ts     # All translations (IS/EN) + project data
+        ├── language-context.tsx # React context for IS/EN bilingual support
+        └── translations.ts     # All bilingual text content
 ```
+
+## Pages
+
+### Landing Page (`/`)
+- Giant "artik" in bold lowercase, centered on black background
+- Single CTA button: "HAFA SAMBAND" (IS) / "GET IN TOUCH" (EN)
+- Minimal header: "A" logo top-left, "EN"/"IS" toggle top-right
+- Footer: copyright + location
+
+### Contact Page (`/contact`)
+- "← Til baka" / "← Back" link to return home
+- Clean form: Name, Email, Company (optional), Message
+- Underline-style inputs on black background
+- Rounded outline submit button
+- Contact info below form: email + location
 
 ## Development Commands
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-
-# Build for production
 npm run build
-
-# Run linter
 npm run lint
 ```
 
-## Key Files for Content Updates
+## Key Files
 
-- **Translations:** `src/lib/translations.ts` — All bilingual text content
-- **Projects:** `src/lib/translations.ts` (bottom of file) — Project data array
-- **Color palette:** `src/app/globals.css` — CSS custom properties in `@theme`
-- **Layout/SEO:** `src/app/layout.tsx` — Metadata, font, and page structure
+- **All text content:** `src/lib/translations.ts`
+- **Styles:** `src/app/globals.css`
+- **Layout/SEO:** `src/app/layout.tsx`
 
 ## Color Palette
 
-| Color | Hex | CSS Variable | Usage |
-|-------|-----|-------------|-------|
-| Glacial blue | `#88C0D0` | `--color-glacial` | Primary accent, links, CTAs |
-| Lava black | `#2E3440` | `--color-lava-black` | Text, dark backgrounds |
-| Lava red | `#BF616A` | `--color-lava-red` | Secondary accent, hover states |
-| Moss green | `#A3BE8C` | `--color-moss` | Tertiary accent, success |
-| Ice white | `#ECEFF4` | `--color-ice-white` | Backgrounds, negative space |
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Black | `#0A0A0A` | Background |
+| White | `#F8F9FA` | Text |
+| Gray | `#2A2A2A` | Input backgrounds (if needed) |
+| Gray Light | `#888888` | Subtle text |
 
 ## Bilingual System
 
-The site uses a React context-based language system:
-- `LanguageProvider` wraps the entire app in `layout.tsx`
+- `LanguageProvider` wraps the app in `layout.tsx`
 - `useLanguage()` hook returns `{ locale, setLocale, t }`
 - `t(obj)` resolves `{ is: "...", en: "..." }` based on current locale
 - Language preference persists via `localStorage`
-- Toggle between IS/EN in the navbar
+- Toggle in top-right corner of both pages
 
-## Development Conventions
+## Design Principles
 
-### General
-
-- Prefer TypeScript over JavaScript
-- Use kebab-case for file names
-- Keep components small and focused
-- All user-facing text must be bilingual (add to `translations.ts`)
-
-### Adding a New Project
-
-1. Add a thumbnail image to `public/projects/`
-2. Add a new entry to the `projects` array in `src/lib/translations.ts`
-3. Set `videoUrl` to a YouTube/Vimeo embed URL
-
-### Adding New Translations
-
-Add entries to the `translations` object in `src/lib/translations.ts` with both `is` and `en` keys.
+- Pure black background, white text — nothing else
+- No glows, gradients, effects, or decorative elements
+- Bold typography does all the work
+- Generous whitespace
+- Only two pages — landing + contact
+- Responsive via `clamp()` for the hero text
 
 ## Environment Variables
 
-No environment variables are required for the base site. If adding a form backend:
+No environment variables required. To connect the contact form:
 
 ```
-# Example for FormSpree
 NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxx
 ```
 
 ## Deployment
 
-Optimized for Vercel. Deploy by connecting the GitHub repository to Vercel or run:
+Optimized for Vercel:
 
 ```bash
 npm run build
 ```
-
-## Key Decisions Log
-
-| Date | Decision | Rationale |
-|------|----------|-----------|
-| 2026-02-12 | Repository created | Initial project setup |
-| 2026-02-12 | Next.js 16 + Tailwind CSS v4 + Framer Motion | Modern stack, Vercel-optimized, animation support |
-| 2026-02-12 | Context-based bilingual system | Simple, no routing overhead, localStorage persistence |
-| 2026-02-12 | Icelandic landscape color palette | Brand alignment with Icelandic minimalism |
