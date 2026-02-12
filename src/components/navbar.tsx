@@ -36,7 +36,7 @@ export function Navbar() {
                 href={link.href}
                 className={`text-sm tracking-wide transition-colors duration-200 ${
                   pathname === link.href
-                    ? "text-glacial font-medium"
+                    ? "text-ember font-medium"
                     : "text-ice-white/60 hover:text-ice-white"
                 }`}
               >
@@ -113,7 +113,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`text-lg ${
                     pathname === link.href
-                      ? "text-glacial font-medium"
+                      ? "text-ember font-medium"
                       : "text-ice-white/60"
                   }`}
                 >

@@ -102,12 +102,12 @@ export default function ContactPage() {
   };
 
   const inputClasses = (hasError?: string) =>
-    `w-full px-4 py-3 bg-surface/50 border rounded-lg text-ice-white placeholder:text-ice-white/25 focus:outline-none focus:ring-2 focus:ring-glacial/40 transition-colors ${
-      hasError ? "border-lava-red" : "border-ice-white/10"
+    `w-full px-4 py-3 bg-surface/50 border rounded-lg text-ice-white placeholder:text-ice-white/25 focus:outline-none focus:ring-2 focus:ring-ember/30 transition-colors ${
+      hasError ? "border-ember" : "border-ice-white/10"
     }`;
 
   const selectClasses =
-    "w-full px-4 py-3 bg-surface/50 border border-ice-white/10 rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-glacial/40 transition-colors";
+    "w-full px-4 py-3 bg-surface/50 border border-ice-white/10 rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-ember/30 transition-colors";
 
   return (
     <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-lava-black">
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     placeholder={t(translations.contact.form.namePlaceholder)}
                     className={inputClasses(errors.name)}
                   />
-                  {errors.name && <p className="mt-1.5 text-sm text-lava-red">{errors.name}</p>}
+                  {errors.name && <p className="mt-1.5 text-sm text-ember">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-ice-white/70 mb-2">
@@ -155,7 +155,7 @@ export default function ContactPage() {
                     placeholder={t(translations.contact.form.emailPlaceholder)}
                     className={inputClasses(errors.email)}
                   />
-                  {errors.email && <p className="mt-1.5 text-sm text-lava-red">{errors.email}</p>}
+                  {errors.email && <p className="mt-1.5 text-sm text-ember">{errors.email}</p>}
                 </div>
               </div>
 
@@ -226,7 +226,7 @@ export default function ContactPage() {
                       onClick={() => handlePlatformToggle(platform)}
                       className={`px-4 py-2 text-sm rounded-full border transition-colors duration-200 ${
                         formData.platforms.includes(platform)
-                          ? "bg-glacial text-lava-black border-glacial"
+                          ? "bg-ember text-ice-white border-ember"
                           : "border-ice-white/15 text-ice-white/50 hover:border-ice-white/30"
                       }`}
                     >
@@ -287,14 +287,14 @@ export default function ContactPage() {
                   placeholder={t(translations.contact.form.messagePlaceholder)}
                   className={`${inputClasses(errors.message)} resize-none`}
                 />
-                {errors.message && <p className="mt-1.5 text-sm text-lava-red">{errors.message}</p>}
+                {errors.message && <p className="mt-1.5 text-sm text-ember">{errors.message}</p>}
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="px-8 py-3.5 bg-glacial text-lava-black font-medium tracking-wide rounded-full hover:bg-glacial-light disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+                className="px-8 py-3.5 bg-ember text-ice-white font-medium tracking-wide rounded-full hover:bg-ember-light disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
               >
                 {status === "sending"
                   ? t(translations.contact.form.sending)
@@ -314,7 +314,7 @@ export default function ContactPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-lava-red font-medium"
+                  className="text-ember font-medium"
                 >
                   {t(translations.contact.error)}
                 </motion.p>
@@ -331,7 +331,7 @@ export default function ContactPage() {
                 </h3>
                 <a
                   href={`mailto:${translations.contact.info.emailValue}`}
-                  className="text-lg text-glacial hover:text-glacial-light transition-colors duration-200"
+                  className="text-lg text-ember hover:text-ember-light transition-colors duration-200"
                 >
                   {translations.contact.info.emailValue}
                 </a>
@@ -346,7 +346,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="mt-8 aspect-square bg-gradient-to-br from-glacial/8 via-surface to-moss/5 rounded-xl flex items-center justify-center border border-ice-white/5">
+              <div className="mt-8 aspect-square bg-gradient-to-br from-ember/5 via-surface to-surface-light/50 rounded-xl flex items-center justify-center border border-ice-white/5">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-ice-white/8 mb-2">64&deg;N</p>
                   <p className="text-sm text-ice-white/20 tracking-wider">

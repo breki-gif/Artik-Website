@@ -32,19 +32,19 @@ export default function AboutPage() {
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
-                <p className="mt-6 text-ice-white/60 leading-relaxed">
+                <p className="mt-6 text-ice-white/70 leading-relaxed">
                   {t(translations.about.storyP1)}
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.15}>
-                <p className="mt-4 text-ice-white/60 leading-relaxed">
+                <p className="mt-4 text-ice-white/70 leading-relaxed">
                   {t(translations.about.storyP2)}
                 </p>
               </ScrollReveal>
             </div>
 
             <ScrollReveal direction="right">
-              <div className="aspect-[4/3] bg-gradient-to-br from-glacial/10 via-surface to-lava-black-deep rounded-xl flex items-center justify-center border border-ice-white/5">
+              <div className="aspect-[4/3] bg-gradient-to-br from-ember/5 via-surface to-lava-black-deep rounded-xl flex items-center justify-center border border-ice-white/5">
                 <span className="text-ice-white/10 text-sm tracking-wider uppercase">
                   Studio
                 </span>
@@ -67,7 +67,7 @@ export default function AboutPage() {
             {t(translations.about.differences).map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.06}>
                 <div className="flex items-start gap-4 p-5 bg-surface/50 rounded-lg border border-ice-white/5">
-                  <div className="mt-1.5 w-2 h-2 rounded-full bg-glacial shrink-0" />
+                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ember shrink-0" />
                   <span className="text-ice-white/70 text-sm">{item}</span>
                 </div>
               </ScrollReveal>
@@ -93,14 +93,14 @@ export default function AboutPage() {
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div className="bg-surface/50 rounded-xl overflow-hidden border border-ice-white/5">
                   {/* Photo placeholder */}
-                  <div className="aspect-[3/4] bg-gradient-to-b from-glacial/5 to-surface flex items-center justify-center">
+                  <div className="aspect-[3/4] bg-gradient-to-b from-ember/[0.03] to-surface flex items-center justify-center">
                     <svg className="w-16 h-16 text-ice-white/8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
                   </div>
                   <div className="p-6">
                     <h3 className="font-semibold text-ice-white">{member.name}</h3>
-                    <p className="text-sm text-glacial mt-1">{t(member.role)}</p>
+                    <p className="text-sm text-ember mt-1">{t(member.role)}</p>
                     <p className="mt-3 text-sm text-ice-white/50 leading-relaxed">
                       {t(member.bio)}
                     </p>
@@ -120,16 +120,16 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ice-white">
                 {t(translations.about.icelandHeading)}
               </h2>
-              <p className="mt-6 text-ice-white/50 leading-relaxed text-lg">
+              <p className="mt-6 text-ice-white/60 leading-relaxed text-lg">
                 {t(translations.about.icelandP1)}
               </p>
-              <p className="mt-4 text-ice-white/50 leading-relaxed">
+              <p className="mt-4 text-ice-white/60 leading-relaxed">
                 {t(translations.about.icelandP2)}
               </p>
             </ScrollReveal>
 
             <ScrollReveal direction="right">
-              <div className="aspect-[4/3] bg-gradient-to-br from-glacial/10 via-surface to-moss/5 rounded-xl flex items-center justify-center border border-ice-white/5">
+              <div className="aspect-[4/3] bg-gradient-to-br from-ember/5 via-surface to-surface-light/50 rounded-xl flex items-center justify-center border border-ice-white/5">
                 <div className="text-center">
                   <p className="text-5xl font-bold text-ice-white/8">64&deg;N</p>
                   <p className="mt-2 text-sm text-ice-white/15 tracking-widest uppercase">
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-3.5 bg-lava-red text-ice-white font-medium tracking-wide rounded-full hover:bg-lava-red-dark transition-colors duration-300"
+                className="px-8 py-3.5 bg-ember text-ice-white font-medium tracking-wide rounded-full hover:bg-ember-dark transition-colors duration-300"
               >
                 {t(translations.homeCta.button)}
               </Link>
