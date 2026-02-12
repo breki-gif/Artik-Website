@@ -46,6 +46,10 @@ export const translations = {
       is: "Sjá öll verkefni",
       en: "View all projects",
     },
+    workTogether: {
+      is: "Vilt þú vinna saman?",
+      en: "Interested in working together?",
+    },
   },
 
   // Services preview on homepage

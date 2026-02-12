@@ -180,28 +180,21 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {featuredProjects.map((project, i) => (
               <ScrollReveal key={project.id} delay={i * 0.1}>
-                <Link href="/portfolio" className="group block">
+                <div className="group block">
                   <div className="relative aspect-video bg-lava-black/5 rounded-lg overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-glacial/15 to-lava-black/10 flex items-center justify-center">
                       <span className="text-lava-black/20 text-xs tracking-wider uppercase">
                         {t(project.category)}
                       </span>
                     </div>
-                    <div className="absolute inset-0 bg-lava-black/0 group-hover:bg-lava-black/40 transition-colors duration-300 flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-ice-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <svg className="w-5 h-5 text-lava-black ml-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
                   </div>
-                  <h3 className="mt-4 text-base font-medium group-hover:text-glacial-dark transition-colors duration-200">
+                  <h3 className="mt-4 text-base font-medium">
                     {t(project.title)}
                   </h3>
                   <p className="mt-1 text-sm text-lava-black/50">
                     {t(project.category)}
                   </p>
-                </Link>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -212,10 +205,10 @@ export default function HomePage() {
             </p>
             <div className="mt-4 text-center">
               <Link
-                href="/portfolio"
+                href="/contact"
                 className="inline-block text-sm tracking-wide text-glacial-dark hover:text-lava-black border-b border-glacial-dark hover:border-lava-black pb-1 transition-colors duration-200"
               >
-                {t(translations.featured.viewAll)} &rarr;
+                {t(translations.featured.workTogether)} &rarr;
               </Link>
             </div>
           </ScrollReveal>

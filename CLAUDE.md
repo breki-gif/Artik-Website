@@ -35,11 +35,10 @@ Artik-Website/
     ├── app/
     │   ├── globals.css          # Global styles + Tailwind + color palette
     │   ├── layout.tsx           # Root layout with providers, navbar, footer
-    │   ├── page.tsx             # Homepage
-    │   ├── portfolio/page.tsx   # Portfolio with video modal
-    │   ├── about/page.tsx       # About/Studio page
-    │   ├── services/page.tsx    # Services page
-    │   └── contact/page.tsx     # Contact form page
+    │   ├── page.tsx             # Homepage (hero, services preview, pipeline, featured work, CTA)
+    │   ├── services/page.tsx    # Services page (commercial + creative tracks, process)
+    │   ├── about/page.tsx       # About/Studio page (story, team, Iceland identity)
+    │   └── contact/page.tsx     # Contact form page (expanded fields, sidebar)
     ├── components/
     │   ├── navbar.tsx           # Navigation with language toggle
     │   ├── footer.tsx           # Site footer
