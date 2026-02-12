@@ -15,7 +15,7 @@ export default function LandingPage() {
       <main className="min-h-screen flex flex-col items-center justify-center bg-black px-6">
         {/* artik */}
         <h1 className="text-[clamp(4rem,15vw,12rem)] font-black tracking-tight leading-none text-white select-none">
-          artik
+          Artik
         </h1>
 
         {/* CTA */}
