@@ -9,14 +9,13 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 export default function HomePage() {
   const { t } = useLanguage();
 
-  const featuredProjects = projects.slice(0, 4);
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <>
-      {/* Hero Section */}
+      {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center justify-center bg-lava-black text-ice-white overflow-hidden">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-lava-black via-lava-black/95 to-glacial-dark/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-lava-black-deep via-lava-black to-glacial/10" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.h1
@@ -32,7 +31,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-6 md:mt-8 text-lg md:text-xl text-ice-white/70 max-w-2xl mx-auto leading-relaxed"
+            className="mt-6 md:mt-8 text-lg md:text-xl text-ice-white/60 max-w-2xl mx-auto leading-relaxed"
           >
             {t(translations.hero.subtitle)}
           </motion.p>
@@ -41,13 +40,19 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-10"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
-              href="/portfolio"
-              className="inline-block px-8 py-3.5 bg-glacial text-lava-black font-medium tracking-wide rounded-full hover:bg-glacial-light transition-colors duration-300"
+              href="/services"
+              className="px-8 py-3.5 bg-glacial text-lava-black font-medium tracking-wide rounded-full hover:bg-glacial-light transition-colors duration-300"
             >
               {t(translations.hero.cta)}
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 border border-ice-white/30 text-ice-white font-medium tracking-wide rounded-full hover:bg-ice-white/10 transition-colors duration-300"
+            >
+              {t(translations.hero.ctaSecondary)}
             </Link>
           </motion.div>
         </div>
@@ -69,7 +74,101 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Featured Projects */}
+      {/* ── Services Preview ── */}
+      <section className="py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              {t(translations.servicesPreview.heading)}
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Commercial */}
+            <ScrollReveal delay={0.1}>
+              <div className="group p-8 lg:p-10 bg-ice-white-dark/50 rounded-xl hover:bg-ice-white-dark transition-colors duration-300 h-full flex flex-col">
+                <div className="w-10 h-10 rounded-full bg-glacial/20 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-glacial-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {t(translations.servicesPreview.commercial.title)}
+                </h3>
+                <p className="mt-3 text-lava-black/60 leading-relaxed flex-1">
+                  {t(translations.servicesPreview.commercial.description)}
+                </p>
+                <Link
+                  href="/services"
+                  className="mt-6 inline-flex items-center text-sm text-glacial-dark hover:text-lava-black font-medium transition-colors duration-200"
+                >
+                  {t(translations.servicesPreview.learnMore)}
+                  <span className="ml-1">&rarr;</span>
+                </Link>
+              </div>
+            </ScrollReveal>
+
+            {/* Creative */}
+            <ScrollReveal delay={0.2}>
+              <div className="group p-8 lg:p-10 bg-ice-white-dark/50 rounded-xl hover:bg-ice-white-dark transition-colors duration-300 h-full flex flex-col">
+                <div className="w-10 h-10 rounded-full bg-lava-red/10 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-lava-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {t(translations.servicesPreview.creative.title)}
+                </h3>
+                <p className="mt-3 text-lava-black/60 leading-relaxed flex-1">
+                  {t(translations.servicesPreview.creative.description)}
+                </p>
+                <Link
+                  href="/services"
+                  className="mt-6 inline-flex items-center text-sm text-glacial-dark hover:text-lava-black font-medium transition-colors duration-200"
+                >
+                  {t(translations.servicesPreview.learnMore)}
+                  <span className="ml-1">&rarr;</span>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Production Pipeline ── */}
+      <section className="py-24 lg:py-32 bg-lava-black text-ice-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              {t(translations.pipeline.heading)}
+            </h2>
+            <p className="mt-4 text-lg text-ice-white/50 max-w-xl">
+              {t(translations.pipeline.subtitle)}
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {translations.pipeline.steps.map((step, i) => (
+              <ScrollReveal key={i} delay={i * 0.15}>
+                <div className="relative">
+                  <div className="text-6xl font-bold text-ice-white/5 absolute -top-4 -left-2">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="relative pt-8">
+                    <div className="w-2 h-2 rounded-full bg-glacial mb-4" />
+                    <h3 className="text-lg font-semibold">{t(step.title)}</h3>
+                    <p className="mt-2 text-ice-white/50 text-sm leading-relaxed">
+                      {t(step.description)}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Featured Work ── */}
       <section className="py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
@@ -78,49 +177,75 @@ export default function HomePage() {
             </h2>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {featuredProjects.map((project, i) => (
               <ScrollReveal key={project.id} delay={i * 0.1}>
-                <Link href="/portfolio" className="group block">
+                <div className="group block">
                   <div className="relative aspect-video bg-lava-black/5 rounded-lg overflow-hidden">
-                    {/* Placeholder for project thumbnail */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-glacial/20 to-lava-black/10 flex items-center justify-center">
-                      <span className="text-lava-black/30 text-sm tracking-wider uppercase">
+                    <div className="absolute inset-0 bg-gradient-to-br from-glacial/15 to-lava-black/10 flex items-center justify-center">
+                      <span className="text-lava-black/20 text-xs tracking-wider uppercase">
                         {t(project.category)}
                       </span>
                     </div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-lava-black/0 group-hover:bg-lava-black/40 transition-colors duration-300 flex items-center justify-center">
-                      <span className="text-ice-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm tracking-wider">
-                        {t(translations.portfolio.watchProject)}
-                      </span>
-                    </div>
                   </div>
-                  <h3 className="mt-4 text-lg font-medium group-hover:text-glacial-dark transition-colors duration-200">
+                  <h3 className="mt-4 text-base font-medium">
                     {t(project.title)}
                   </h3>
-                  <p className="mt-1 text-sm text-lava-black/60">
-                    {t(project.description)}
+                  <p className="mt-1 text-sm text-lava-black/50">
+                    {t(project.category)}
                   </p>
-                </Link>
+                </div>
               </ScrollReveal>
             ))}
           </div>
 
           <ScrollReveal delay={0.3}>
-            <div className="mt-12 text-center">
+            <p className="mt-8 text-sm text-lava-black/40 text-center">
+              {t(translations.featured.comingSoon)}
+            </p>
+            <div className="mt-4 text-center">
               <Link
-                href="/portfolio"
+                href="/contact"
                 className="inline-block text-sm tracking-wide text-glacial-dark hover:text-lava-black border-b border-glacial-dark hover:border-lava-black pb-1 transition-colors duration-200"
               >
-                {t(translations.featured.viewAll)} &rarr;
+                {t(translations.featured.workTogether)} &rarr;
               </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ── Iceland Identity ── */}
+      <section className="py-24 lg:py-32 bg-ice-white-dark/50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                {t(translations.iceland.heading)}
+              </h2>
+              <p className="mt-6 text-lava-black/60 leading-relaxed text-lg">
+                {t(translations.iceland.description)}
+              </p>
+              <p className="mt-4 text-glacial-dark font-medium">
+                {t(translations.iceland.tagline)}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right">
+              <div className="aspect-[4/3] bg-gradient-to-br from-glacial/20 via-ice-white-dark to-moss/15 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-5xl font-bold text-lava-black/10">64&deg;N</p>
+                  <p className="mt-2 text-sm text-lava-black/30 tracking-widest uppercase">
+                    Iceland
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
       <section className="py-24 lg:py-32 bg-lava-black text-ice-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <ScrollReveal>
@@ -129,7 +254,7 @@ export default function HomePage() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mt-6 text-lg text-ice-white/60 max-w-xl mx-auto">
+            <p className="mt-6 text-lg text-ice-white/50 max-w-xl mx-auto">
               {t(translations.homeCta.description)}
             </p>
           </ScrollReveal>
