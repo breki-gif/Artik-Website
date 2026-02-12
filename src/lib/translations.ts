@@ -59,10 +59,10 @@ export const translations = {
       en: "Two ways to work together",
     },
     commercial: {
-      title: { is: "Viðskipta- og vörumerkjaframleiðsla", en: "Commercial & Brand Production" },
+      title: { is: "Efnisgerð fyrir samfélagsmiðla", en: "Social Media Content Creation" },
       description: {
-        is: "Fagleg myndbandsframleiðsla sem skilar árangri — vörumerkjamyndir, auglýsingar og efni fyrir samfélagsmiðla.",
-        en: "Professional video production that delivers results — brand films, commercials, and social media content.",
+        is: "Við búum til stutt myndbandsefni sem eykur sýnileika þinn á TikTok, Instagram Reels og öðrum samfélagsmiðlum.",
+        en: "We create short-form video content designed to increase your visibility on TikTok, Instagram Reels, and other social platforms.",
       },
     },
     creative: {
@@ -159,70 +159,74 @@ export const translations = {
     },
 
     commercial: {
-      title: { is: "Viðskipta- og vörumerkjaframleiðsla", en: "Commercial & Brand Production" },
+      title: { is: "Efnisgerð fyrir samfélagsmiðla", en: "Social Media Content Creation" },
       subtitle: {
-        is: "Fagleg myndbandsframleiðsla sem skilar mælanlegum árangri.",
-        en: "Professional video production that delivers measurable results.",
+        is: "Stutt myndbandsefni sem eykur sýnileika þinn á samfélagsmiðlum.",
+        en: "Short-form video content designed to boost your social media presence.",
       },
       description: {
-        is: "Við framleiðum hágæða myndbandsefni fyrir vörumerki og fyrirtæki sem vilja skera sig úr. Frá vörumerkjamyndum og auglýsingum til efnis fyrir samfélagsmiðla — við sjáum um allt ferlið frá hugmynd til birtingar.",
-        en: "We produce high-quality video content for brands and companies that want to stand out. From brand films and commercials to social media content — we handle the full process from concept to publishing.",
+        is: "Við búum til stutt myndbandsefni sem er hannað til að auka sýnileika þinn á TikTok, Instagram Reels og öðrum samfélagsmiðlum.",
+        en: "We create short-form video content designed to increase your visibility on TikTok, Instagram Reels, and other social platforms.",
       },
       includes: {
-        is: "Þetta felur í sér:",
-        en: "This includes:",
+        is: "Þjónustan okkar felur í sér:",
+        en: "Our service includes:",
       },
       items: {
         is: [
-          "Vörumerkjamyndir og auglýsingar",
-          "Stutt efni fyrir samfélagsmiðla (TikTok, Instagram)",
-          "Kynningarmyndir og vöruefni",
-          "Efni fyrir markaðsherferðir",
+          "Skilningur á vörumerkinu þínu og markmiðum",
+          "Hugmyndavinna sem virkar á samfélagsmiðlum",
+          "Faglegar tökur á staðnum eða í einföldu stúdíói",
+          "Klipping og frágangs sem hámarkar áhrif",
         ],
         en: [
-          "Brand films and commercials",
-          "Short-form content for social media (TikTok, Instagram)",
-          "Launch films and product videos",
-          "Campaign content and branded storytelling",
+          "Understanding your brand and goals",
+          "Brainstorming content ideas that work on social platforms",
+          "Professional filming on-location or simple studio setup",
+          "Editing and finishing for maximum impact",
         ],
       },
       pipeline: {
-        is: "Ferlið í heild:",
-        en: "Full-service package:",
+        is: "Ferlið okkar:",
+        en: "Our process:",
       },
       pipelineSteps: [
         {
-          title: { is: "Undirbúningur", en: "Pre-Production" },
+          title: { is: "Hugmyndaþróun", en: "Concept Development" },
           items: {
-            is: ["Rannsóknir og stefnumótun", "Hugmyndaleit og hugmyndaþróun", "Handritun og sögurás"],
-            en: ["Research and strategy", "Brainstorming and concept development", "Scripting and storyboarding"],
+            is: ["Skilningur á vörumerkinu og markmiðum", "Hugmyndavinna fyrir samfélagsmiðlaefni", "Áætlanagerð sem nær til markhóps"],
+            en: ["Understanding your brand and goals", "Brainstorming content ideas for social platforms", "Planning content that resonates with your target audience"],
           },
         },
         {
-          title: { is: "Framleiðsla", en: "Production" },
+          title: { is: "Myndbandsframleiðsla", en: "Video Production" },
           items: {
-            is: ["Faglegar tökur á staðnum eða í stúdíói", "Kvikmyndataka og leikstjórn", "Loftmyndir og drónur"],
-            en: ["Professional filming on-location or in studio", "Cinematography and direction", "Aerial and drone footage"],
+            is: ["Faglegar tökur á staðnum eða í stúdíói", "Stutt myndböndin hönnuð fyrir TikTok og Instagram Reels"],
+            en: ["Professional filming on-location or simple studio setup", "Engaging short-form videos optimized for TikTok and Instagram Reels"],
           },
         },
         {
-          title: { is: "Eftirvinnsla", en: "Post-Production" },
+          title: { is: "Klipping og frágangs", en: "Editing & Finishing" },
           items: {
-            is: ["Klipping og samsetning", "Litastilling", "Hljóðhönnun og tónlist", "Hreyfimyndir og textagerð"],
-            en: ["Editing and assembly", "Color grading", "Sound design and music", "Motion graphics and titling"],
+            is: ["Klipping sem hámarkar áhrif á samfélagsmiðlum", "Aðlögun að hverri vettvangsstærð", "Textar, áhrif og grafík eftir þörfum"],
+            en: ["Editing videos for maximum impact on social platforms", "Platform-specific formatting and optimization", "Adding captions, text, and effects as needed"],
           },
         },
         {
           title: { is: "Birting", en: "Publishing" },
           items: {
-            is: ["Aðlögun fyrir mismunandi vettvangi", "Birting og dreifing"],
-            en: ["Platform-specific optimization", "Publishing and distribution"],
+            is: ["Bein upphleðsla og birting á TikTok og Instagram", "Aðlögun fyrir betri dreifingu"],
+            en: ["Direct upload and posting to your TikTok and Instagram accounts", "Platform optimization for better reach"],
           },
         },
       ],
       idealFor: {
-        is: "Hentar fyrir: Vörumerki, fyrirtæki, sprotafyrirtæki og ferðaþjónustufyrirtæki sem vilja áhrifamikið sjónrænt efni sem skilar árangri.",
-        en: "Ideal for: Brands, businesses, startups, and tourism companies looking for engaging visual content that drives results.",
+        is: "Hentar fyrir: Fyrirtæki og vörumerki sem vilja auka sýnileika á samfélagsmiðlum með reglulegu og aðlaðandi stuttu efni. Fullkomið fyrir veitingastaði, verslun, ferðaþjónustu, staðbundna þjónustu og öll fyrirtæki sem vilja ná til viðskiptavina þar sem þeir eyða tíma sínum.",
+        en: "Ideal for: Businesses and brands looking to build visibility on social media through consistent, engaging short-form content. Perfect for restaurants, retail, tourism, local services, and any business wanting to reach customers where they spend their time.",
+      },
+      whatYouGet: {
+        is: "Stutt myndböndin (15–60 sekúndur) sem eru hönnuð til að vekja athygli, auka virkni og stækka viðveru þína á samfélagsmiðlum.",
+        en: "Short-form videos (15–60 seconds) designed to grab attention, increase engagement, and grow your social media presence.",
       },
     },
 
@@ -495,12 +499,12 @@ export const translations = {
       },
       projectTypes: {
         is: [
-          "Viðskipta- og vörumerkjaframleiðsla",
+          "Efnisgerð fyrir samfélagsmiðla",
           "Skapandi og tilraunakennd vinna",
           "Veit ekki enn",
         ],
         en: [
-          "Commercial & Brand Production",
+          "Social Media Content Creation",
           "Creative & Experimental Work",
           "Not sure yet",
         ],
