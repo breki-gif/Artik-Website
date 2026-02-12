@@ -1,31 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Deep blacks ── */
-  --color-void: #0A0A0A;
-  --color-night: #111115;
-  --color-surface: #1A1A1F;
-  --color-surface-light: #242428;
-
-  /* ── Fire (volcanic) ── */
-  --color-fire: #FF6B35;
-  --color-fire-light: #FF8C42;
-  --color-fire-soft: #FFA06B;
-  --color-fire-dark: #E05A2B;
-
-  /* ── Ice (glacial/aurora) ── */
-  --color-ice: #00D9FF;
-  --color-ice-light: #90E0EF;
-  --color-ice-dark: #00B4D8;
-
-  /* ── Aurora (where fire meets ice) ── */
-  --color-aurora: #B794F6;
-  --color-aurora-dark: #9D7FEA;
-
-  /* ── Neutrals ── */
-  --color-ice-white: #F8F9FA;
-  --color-ice-white-dark: #D8DEE9;
-  --color-moss: #A3BE8C;
+  --color-black: #0A0A0A;
+  --color-white: #F8F9FA;
+  --color-gray: #2A2A2A;
+  --color-gray-light: #888888;
+  --color-input: #1A1A1A;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -35,107 +15,19 @@ html {
 }
 
 body {
-  background: var(--color-void);
-  color: var(--color-ice-white);
+  background: var(--color-black);
+  color: var(--color-white);
   font-family: var(--font-sans);
 }
 
-/* ── Custom scrollbar ── */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-void);
+  background: var(--color-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-light);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-fire);
-}
-
-/* ── Glow utilities ── */
-.glow-fire {
-  box-shadow: 0 0 30px rgba(255, 107, 53, 0.4),
-              0 0 60px rgba(255, 107, 53, 0.15);
-}
-.glow-fire-sm {
-  box-shadow: 0 0 15px rgba(255, 107, 53, 0.3),
-              0 0 30px rgba(255, 107, 53, 0.1);
-}
-.glow-ice {
-  box-shadow: 0 0 30px rgba(0, 217, 255, 0.4),
-              0 0 60px rgba(0, 217, 255, 0.15);
-}
-.glow-ice-sm {
-  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3),
-              0 0 30px rgba(0, 217, 255, 0.1);
-}
-.glow-aurora {
-  box-shadow: 0 0 30px rgba(183, 148, 246, 0.35),
-              0 0 60px rgba(183, 148, 246, 0.1);
-}
-
-/* ── Radial orbs (background effects) ── */
-.orb-fire {
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 107, 53, 0.25) 0%,
-    rgba(255, 107, 53, 0.08) 40%,
-    transparent 70%
-  );
-}
-.orb-ice {
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 217, 255, 0.2) 0%,
-    rgba(0, 217, 255, 0.06) 40%,
-    transparent 70%
-  );
-}
-.orb-aurora {
-  background: radial-gradient(
-    circle at center,
-    rgba(183, 148, 246, 0.2) 0%,
-    rgba(183, 148, 246, 0.06) 40%,
-    transparent 70%
-  );
-}
-
-/* ── Aurora gradient line ── */
-.aurora-line {
-  background: linear-gradient(90deg, #FF6B35, #B794F6, #00D9FF);
-}
-
-/* ── Glow text shadow ── */
-.text-glow-fire {
-  text-shadow: 0 0 20px rgba(255, 107, 53, 0.5),
-               0 0 40px rgba(255, 107, 53, 0.2);
-}
-.text-glow-ice {
-  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5),
-               0 0 40px rgba(0, 217, 255, 0.2);
-}
-
-/* ── Breathing pulse animation ── */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-
-@keyframes pulse-glow-slow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.03); }
-}
-.animate-pulse-slow {
-  animation: pulse-glow-slow 6s ease-in-out infinite;
-}
-
-/* ── Video modal overlay ── */
-.video-overlay {
-  backdrop-filter: blur(8px);
+  background: var(--color-gray);
+  border-radius: 2px;
 }

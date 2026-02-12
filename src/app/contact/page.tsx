@@ -1,22 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import Link from "next/link";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
-import { ScrollReveal } from "@/components/scroll-reveal";
-
-interface FormData {
-  name: string;
-  email: string;
-  company: string;
-  projectType: string;
-  platforms: string[];
-  timeline: string;
-  budget: string;
-  message: string;
-  language: string;
-}
 
 interface FormErrors {
   name?: string;
@@ -25,351 +12,173 @@ interface FormErrors {
 }
 
 export default function ContactPage() {
-  const { locale, t } = useLanguage();
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    company: "",
-    projectType: "",
-    platforms: [],
-    timeline: "",
-    budget: "",
-    message: "",
-    language: locale === "is" ? "Icelandic" : "English",
-  });
+  const { locale, setLocale, t } = useLanguage();
+  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const validate = (): boolean => {
-    const newErrors: FormErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = t(translations.contact.validation.nameRequired);
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = t(translations.contact.validation.emailRequired);
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t(translations.contact.validation.emailInvalid);
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = t(translations.contact.validation.messageRequired);
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const e: FormErrors = {};
+    if (!form.name.trim()) e.name = t(translations.contact.validation.nameRequired);
+    if (!form.email.trim()) e.email = t(translations.contact.validation.emailRequired);
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = t(translations.contact.validation.emailInvalid);
+    if (!form.message.trim()) e.message = t(translations.contact.validation.messageRequired);
+    setErrors(e);
+    return Object.keys(e).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-
     setStatus("sending");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((r) => setTimeout(r, 1200));
       setStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "",
-        platforms: [],
-        timeline: "",
-        budget: "",
-        message: "",
-        language: locale === "is" ? "Icelandic" : "English",
-      });
+      setForm({ name: "", email: "", company: "", message: "" });
     } catch {
       setStatus("error");
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof FormErrors]) setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  const handlePlatformToggle = (platform: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      platforms: prev.platforms.includes(platform)
-        ? prev.platforms.filter((p) => p !== platform)
-        : [...prev.platforms, platform],
-    }));
-  };
-
-  const inputClasses = (hasError?: string) =>
-    `w-full px-4 py-3 bg-surface/60 border rounded-lg text-ice-white placeholder:text-ice-white/20 focus:outline-none focus:ring-2 transition-all duration-300 ${
-      hasError ? "border-fire/50 focus:ring-fire/30" : "border-ice-white/[0.06] focus:ring-ice/30 focus:border-ice/30"
+  const inputClass = (hasError?: string) =>
+    `w-full px-0 py-3 bg-transparent border-b text-white placeholder:text-white/20 focus:outline-none transition-colors duration-300 ${
+      hasError ? "border-red-500" : "border-white/15 focus:border-white/50"
     }`;
 
-  const selectClasses =
-    "w-full px-4 py-3 bg-surface/60 border border-ice-white/[0.06] rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-ice/30 focus:border-ice/30 transition-all duration-300";
-
   return (
-    <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-void relative overflow-hidden">
-      {/* Background orbs */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] orb-fire opacity-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] orb-ice opacity-10 pointer-events-none" />
+    <div className="min-h-screen bg-black px-6 lg:px-10">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-10 py-5 flex items-center justify-between">
+        <Link
+          href="/"
+          className="text-xs tracking-widest text-white/40 hover:text-white transition-colors duration-300"
+        >
+          {t(translations.contact.back)}
+        </Link>
+        <button
+          onClick={() => setLocale(locale === "is" ? "en" : "is")}
+          className="text-xs tracking-widest text-white/40 hover:text-white transition-colors duration-300"
+          aria-label={locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"}
+        >
+          {locale === "is" ? "EN" : "IS"}
+        </button>
+      </header>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ice-white">
-            {t(translations.contact.heading)}
-          </h1>
-          <p className="mt-4 text-lg text-ice-white/50 max-w-xl">
-            {t(translations.contact.subtitle)}
+      {/* Content */}
+      <main className="max-w-lg mx-auto pt-32 pb-24">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+          {t(translations.contact.heading)}
+        </h1>
+
+        <form onSubmit={handleSubmit} className="mt-12 space-y-8" noValidate>
+          {/* Name */}
+          <div>
+            <label htmlFor="name" className="block text-xs tracking-widest uppercase text-white/40 mb-1">
+              {t(translations.contact.form.name)} *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder={t(translations.contact.form.namePlaceholder)}
+              className={inputClass(errors.name)}
+            />
+            {errors.name && <p className="mt-1.5 text-xs text-red-400">{errors.name}</p>}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block text-xs tracking-widest uppercase text-white/40 mb-1">
+              {t(translations.contact.form.email)} *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder={t(translations.contact.form.emailPlaceholder)}
+              className={inputClass(errors.email)}
+            />
+            {errors.email && <p className="mt-1.5 text-xs text-red-400">{errors.email}</p>}
+          </div>
+
+          {/* Company */}
+          <div>
+            <label htmlFor="company" className="block text-xs tracking-widest uppercase text-white/40 mb-1">
+              {t(translations.contact.form.company)}
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              placeholder={t(translations.contact.form.companyPlaceholder)}
+              className={inputClass()}
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label htmlFor="message" className="block text-xs tracking-widest uppercase text-white/40 mb-1">
+              {t(translations.contact.form.message)} *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              value={form.message}
+              onChange={handleChange}
+              placeholder={t(translations.contact.form.messagePlaceholder)}
+              className={`${inputClass(errors.message)} resize-none`}
+            />
+            {errors.message && <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>}
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="mt-2 px-8 py-3 border border-white/30 rounded-full text-sm tracking-widest text-white/80 hover:bg-white hover:text-black disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300"
+          >
+            {status === "sending"
+              ? t(translations.contact.form.sending)
+              : t(translations.contact.form.submit)}
+          </button>
+
+          {status === "success" && (
+            <p className="text-sm text-white/60">{t(translations.contact.success)}</p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-red-400">{t(translations.contact.error)}</p>
+          )}
+        </form>
+
+        {/* Info */}
+        <div className="mt-20 space-y-3 text-sm text-white/30">
+          <p>
+            <a href={`mailto:${translations.contact.info.email}`} className="hover:text-white transition-colors duration-300">
+              {translations.contact.info.email}
+            </a>
           </p>
-        </ScrollReveal>
-
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
-          {/* Form */}
-          <ScrollReveal className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              {/* Name & Email row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.name)} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={t(translations.contact.form.namePlaceholder)}
-                    className={inputClasses(errors.name)}
-                  />
-                  {errors.name && <p className="mt-1.5 text-sm text-fire">{errors.name}</p>}
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.email)} *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={t(translations.contact.form.emailPlaceholder)}
-                    className={inputClasses(errors.email)}
-                  />
-                  {errors.email && <p className="mt-1.5 text-sm text-fire">{errors.email}</p>}
-                </div>
-              </div>
-
-              {/* Company */}
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-ice-white/60 mb-2">
-                  {t(translations.contact.form.company)}
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder={t(translations.contact.form.companyPlaceholder)}
-                  className={inputClasses()}
-                />
-              </div>
-
-              {/* Project Type & Timeline row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.projectType)} *
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className={selectClasses}
-                  >
-                    <option value="">—</option>
-                    {t(translations.contact.form.projectTypes).map((type) => (
-                      <option key={type} value={type}>{type}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.timeline)}
-                  </label>
-                  <select
-                    id="timeline"
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    className={selectClasses}
-                  >
-                    <option value="">—</option>
-                    {t(translations.contact.form.timelineOptions).map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Platforms */}
-              <div>
-                <label className="block text-sm font-medium text-ice-white/60 mb-3">
-                  {t(translations.contact.form.platforms)}
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {t(translations.contact.form.platformOptions).map((platform) => (
-                    <button
-                      key={platform}
-                      type="button"
-                      onClick={() => handlePlatformToggle(platform)}
-                      className={`px-4 py-2 text-sm rounded-full border transition-all duration-300 ${
-                        formData.platforms.includes(platform)
-                          ? "bg-fire text-white border-fire glow-fire-sm"
-                          : "border-ice-white/10 text-ice-white/40 hover:border-fire/30 hover:text-fire"
-                      }`}
-                    >
-                      {platform}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Budget & Language row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.budget)}
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className={selectClasses}
-                  >
-                    <option value="">—</option>
-                    {t(translations.contact.form.budgetOptions).map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="language" className="block text-sm font-medium text-ice-white/60 mb-2">
-                    {t(translations.contact.form.language)}
-                  </label>
-                  <select
-                    id="language"
-                    name="language"
-                    value={formData.language}
-                    onChange={handleChange}
-                    className={selectClasses}
-                  >
-                    {t(translations.contact.form.languageOptions).map((lang) => (
-                      <option key={lang} value={lang}>{lang}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-ice-white/60 mb-2">
-                  {t(translations.contact.form.message)} *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder={t(translations.contact.form.messagePlaceholder)}
-                  className={`${inputClasses(errors.message)} resize-none`}
-                />
-                {errors.message && <p className="mt-1.5 text-sm text-fire">{errors.message}</p>}
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="px-8 py-3.5 bg-fire text-white font-medium tracking-wide rounded-full glow-fire-sm hover:glow-fire disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 hover:scale-[1.02]"
-              >
-                {status === "sending"
-                  ? t(translations.contact.form.sending)
-                  : t(translations.contact.form.submit)}
-              </button>
-
-              {status === "success" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-moss font-medium"
-                >
-                  {t(translations.contact.success)}
-                </motion.p>
-              )}
-              {status === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-fire font-medium"
-                >
-                  {t(translations.contact.error)}
-                </motion.p>
-              )}
-            </form>
-          </ScrollReveal>
-
-          {/* Sidebar */}
-          <ScrollReveal direction="right" className="lg:col-span-1">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-sm font-medium tracking-wider uppercase text-ice-white/30 mb-3">
-                  {t(translations.contact.info.emailLabel)}
-                </h3>
-                <a
-                  href={`mailto:${translations.contact.info.emailValue}`}
-                  className="text-lg text-fire hover:text-fire-light transition-colors duration-300"
-                >
-                  {translations.contact.info.emailValue}
-                </a>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-medium tracking-wider uppercase text-ice-white/30 mb-3">
-                  {t(translations.contact.info.locationLabel)}
-                </h3>
-                <p className="text-lg text-ice-white/50">
-                  {t(translations.contact.info.locationValue)}
-                </p>
-              </div>
-
-              <div className="mt-8 aspect-square bg-surface/40 rounded-2xl flex items-center justify-center border border-ice-white/[0.04] relative overflow-hidden">
-                <div className="absolute inset-0 orb-aurora opacity-20" />
-                <div className="absolute bottom-0 right-0 w-3/4 h-3/4 orb-fire opacity-15" />
-                <div className="relative text-center">
-                  <p className="text-4xl font-bold text-ice-white/10 mb-2">64&deg;N</p>
-                  <p className="text-sm text-ice-white/15 tracking-wider">
-                    Reykjav&iacute;k
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-xs text-ice-white/20 italic">
-                {t({
-                  is: "Við svörum yfirleitt innan 24 klukkustunda.",
-                  en: "We typically respond within 24 hours.",
-                })}
-              </p>
-            </div>
-          </ScrollReveal>
+          <p>{t(translations.contact.info.location)}</p>
         </div>
-      </div>
-    </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="pb-6 flex items-center justify-between text-[11px] text-white/20">
+        <span>&copy; {new Date().getFullYear()} Artik</span>
+        <span>{t(translations.footer.location)}</span>
+      </footer>
+    </div>
   );
 }
