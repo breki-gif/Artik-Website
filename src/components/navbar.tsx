@@ -14,9 +14,9 @@ export function Navbar() {
 
   const links = [
     { href: "/", label: t(translations.nav.home) },
-    { href: "/portfolio", label: t(translations.nav.portfolio) },
-    { href: "/about", label: t(translations.nav.about) },
     { href: "/services", label: t(translations.nav.services) },
+    { href: "/about", label: t(translations.nav.about) },
+    { href: "/portfolio", label: t(translations.nav.work) },
     { href: "/contact", label: t(translations.nav.contact) },
   ];
 

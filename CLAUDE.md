@@ -4,7 +4,7 @@ This file provides context for AI assistants (Claude, Copilot, etc.) working on 
 
 ## Project Overview
 
-Artik Website is a bilingual (Icelandic/English) website for Artik, a video/film production creative studio based in Iceland. The site showcases portfolio work through a minimal, clean aesthetic inspired by the Icelandic landscape.
+Artik Website is a bilingual (Icelandic/English) website for Artik, a boutique creative production agency based in Iceland. The site positions Artik as a creative-forward alternative to larger agencies, with two distinct service offerings (commercial brand work and creative/experimental projects) and a strong Icelandic identity.
 
 **Repository:** `breki-gif/Artik-Website`
 
@@ -77,11 +77,11 @@ npm run lint
 
 | Color | Hex | CSS Variable | Usage |
 |-------|-----|-------------|-------|
-| Glacial blue | `#8fb8ca` | `--color-glacial` | Primary accent |
-| Lava black | `#1a1a1a` | `--color-lava-black` | Text, dark backgrounds |
-| Lava red | `#c23b22` | `--color-lava-red` | CTA buttons, accents |
-| Moss green | `#5a7247` | `--color-moss` | Secondary accent, success |
-| Ice white | `#f5f5f0` | `--color-ice-white` | Backgrounds |
+| Glacial blue | `#88C0D0` | `--color-glacial` | Primary accent, links, CTAs |
+| Lava black | `#2E3440` | `--color-lava-black` | Text, dark backgrounds |
+| Lava red | `#BF616A` | `--color-lava-red` | Secondary accent, hover states |
+| Moss green | `#A3BE8C` | `--color-moss` | Tertiary accent, success |
+| Ice white | `#ECEFF4` | `--color-ice-white` | Backgrounds, negative space |
 
 ## Bilingual System
 

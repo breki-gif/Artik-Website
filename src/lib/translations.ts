@@ -4,32 +4,43 @@ export const translations = {
   // Navigation
   nav: {
     home: { is: "Heim", en: "Home" },
-    portfolio: { is: "Verkefni", en: "Portfolio" },
-    about: { is: "Um okkur", en: "About" },
     services: { is: "Þjónusta", en: "Services" },
+    about: { is: "Um okkur", en: "About" },
+    work: { is: "Verkefni", en: "Work" },
     contact: { is: "Hafa samband", en: "Contact" },
   },
 
+  // ──────────────────────────────────────
   // Homepage
+  // ──────────────────────────────────────
   hero: {
     tagline: {
-      is: "Sjónrænar sögur frá norðri",
-      en: "Visual stories from the North",
+      is: "Djörf framleiðsla. Íslensk sál.",
+      en: "Bold production. Icelandic soul.",
     },
     subtitle: {
-      is: "Artik er kvikmynda- og myndbandsverkstæði á Íslandi sem skapar áhrifamiklar sjónrænar sögur sem hreyfa við fólki.",
-      en: "Artik is an Icelandic film and video production studio crafting powerful visual narratives that move people.",
+      is: "Artik er skapandi framleiðslustofa á Íslandi sem býr til sjónrænar sögur sem hreyfa við fólki — frá vörumerkjamyndböndum til listrænna tilrauna.",
+      en: "Artik is a creative production agency based in Iceland, crafting visual stories that move people — from brand films to artistic experiments.",
     },
     cta: {
-      is: "Sjá verkefni",
-      en: "View our work",
+      is: "Sjá þjónustu okkar",
+      en: "Explore our services",
+    },
+    ctaSecondary: {
+      is: "Hafa samband",
+      en: "Get in touch",
     },
   },
 
+  // Featured work on homepage
   featured: {
     heading: {
-      is: "Úrval verkefna",
-      en: "Featured Work",
+      is: "Nýleg verkefni",
+      en: "Recent Work",
+    },
+    comingSoon: {
+      is: "Fleiri verkefni í vinnslu",
+      en: "More projects in the works",
     },
     viewAll: {
       is: "Sjá öll verkefni",
@@ -37,14 +48,92 @@ export const translations = {
     },
   },
 
-  homeCta: {
+  // Services preview on homepage
+  servicesPreview: {
     heading: {
-      is: "Eigum við að vinna saman?",
-      en: "Ready to create something?",
+      is: "Tvær leiðir til að vinna saman",
+      en: "Two ways to work together",
+    },
+    commercial: {
+      title: { is: "Viðskipta- og vörumerkjaframleiðsla", en: "Commercial & Brand Production" },
+      description: {
+        is: "Fagleg myndbandsframleiðsla sem skilar árangri — vörumerkjamyndir, auglýsingar og efni fyrir samfélagsmiðla.",
+        en: "Professional video production that delivers results — brand films, commercials, and social media content.",
+      },
+    },
+    creative: {
+      title: { is: "Skapandi og tilraunakennd vinna", en: "Creative & Experimental Work" },
+      description: {
+        is: "Listræn samstarfsverkefni þar sem skapandi frelsi er í fyrirrúmi — tilraunamyndir, áhugaverkefni og verkefni sem þenja mörkin.",
+        en: "Artistic collaborations where creative freedom comes first — experimental films, passion projects, and work that pushes boundaries.",
+      },
+    },
+    learnMore: {
+      is: "Sjá nánar",
+      en: "Learn more",
+    },
+  },
+
+  // What we do / pipeline section on homepage
+  pipeline: {
+    heading: {
+      is: "Við sjáum um allt ferlið",
+      en: "We handle the full pipeline",
+    },
+    subtitle: {
+      is: "Frá fyrstu hugmynd til endanlegrar afurðar — allt undir einu þaki.",
+      en: "From first concept to final delivery — everything under one roof.",
+    },
+    steps: [
+      {
+        title: { is: "Undirbúningur", en: "Pre-Production" },
+        description: {
+          is: "Rannsóknir, stefnumótun, hugmyndaleit, handritun og sögurás.",
+          en: "Research, strategy, brainstorming, scripting, and storyboarding.",
+        },
+      },
+      {
+        title: { is: "Framleiðsla", en: "Production" },
+        description: {
+          is: "Faglegar tökur á staðnum eða í stúdíói, kvikmyndataka og leikstjórn.",
+          en: "Professional filming on-location or in studio, cinematography, and direction.",
+        },
+      },
+      {
+        title: { is: "Eftirvinnsla", en: "Post-Production" },
+        description: {
+          is: "Klipping, litastilling, hljóðhönnun og hreyfimyndir.",
+          en: "Editing, color grading, sound design, and motion graphics.",
+        },
+      },
+    ],
+  },
+
+  // Iceland identity section on homepage
+  iceland: {
+    heading: {
+      is: "Skapað á Íslandi",
+      en: "Crafted in Iceland",
     },
     description: {
-      is: "Við hjálpum þér að segja þína sögu með myndböndum sem skipta máli.",
-      en: "We help you tell your story through video that matters.",
+      is: "Ísland er ekki bara staðsetningin okkar — það er innblásturinn okkar. Dramatískt landslag, breytileg birta og hrá náttúra móta sjónræna sýn okkar og skapandi nálgun.",
+      en: "Iceland isn't just our location — it's our inspiration. Dramatic landscapes, shifting light, and raw nature shape our visual perspective and creative approach.",
+    },
+    tagline: {
+      is: "Staðsett á Íslandi. Vinnum á heimsvísu.",
+      en: "Based in Iceland. Working globally.",
+    },
+  },
+
+  // Homepage CTA
+  homeCta: {
+    heading: {
+      is: "Sköpum eitthvað saman",
+      en: "Let's create something together",
+    },
+    description: {
+      is: "Hvort sem þú ert með vörumerkjaverkefni eða listræna hugmynd — við viljum heyra frá þér.",
+      en: "Whether you have a brand project or an artistic vision — we'd love to hear from you.",
     },
     button: {
       is: "Hafa samband",
@@ -52,15 +141,292 @@ export const translations = {
     },
   },
 
-  // Portfolio
+  // ──────────────────────────────────────
+  // Services page
+  // ──────────────────────────────────────
+  services: {
+    heading: {
+      is: "Þjónusta okkar",
+      en: "Our Services",
+    },
+    subtitle: {
+      is: "Tvær aðskildar leiðir — bæði knúnar af skapandi krafti og fagmennsku.",
+      en: "Two distinct tracks — both driven by creative vision and craftsmanship.",
+    },
+
+    commercial: {
+      title: { is: "Viðskipta- og vörumerkjaframleiðsla", en: "Commercial & Brand Production" },
+      subtitle: {
+        is: "Fagleg myndbandsframleiðsla sem skilar mælanlegum árangri.",
+        en: "Professional video production that delivers measurable results.",
+      },
+      description: {
+        is: "Við framleiðum hágæða myndbandsefni fyrir vörumerki og fyrirtæki sem vilja skera sig úr. Frá vörumerkjamyndum og auglýsingum til efnis fyrir samfélagsmiðla — við sjáum um allt ferlið frá hugmynd til birtingar.",
+        en: "We produce high-quality video content for brands and companies that want to stand out. From brand films and commercials to social media content — we handle the full process from concept to publishing.",
+      },
+      includes: {
+        is: "Þetta felur í sér:",
+        en: "This includes:",
+      },
+      items: {
+        is: [
+          "Vörumerkjamyndir og auglýsingar",
+          "Stutt efni fyrir samfélagsmiðla (TikTok, Instagram)",
+          "Kynningarmyndir og vöruefni",
+          "Efni fyrir markaðsherferðir",
+        ],
+        en: [
+          "Brand films and commercials",
+          "Short-form content for social media (TikTok, Instagram)",
+          "Launch films and product videos",
+          "Campaign content and branded storytelling",
+        ],
+      },
+      pipeline: {
+        is: "Ferlið í heild:",
+        en: "Full-service package:",
+      },
+      pipelineSteps: [
+        {
+          title: { is: "Undirbúningur", en: "Pre-Production" },
+          items: {
+            is: ["Rannsóknir og stefnumótun", "Hugmyndaleit og hugmyndaþróun", "Handritun og sögurás"],
+            en: ["Research and strategy", "Brainstorming and concept development", "Scripting and storyboarding"],
+          },
+        },
+        {
+          title: { is: "Framleiðsla", en: "Production" },
+          items: {
+            is: ["Faglegar tökur á staðnum eða í stúdíói", "Kvikmyndataka og leikstjórn", "Loftmyndir og drónur"],
+            en: ["Professional filming on-location or in studio", "Cinematography and direction", "Aerial and drone footage"],
+          },
+        },
+        {
+          title: { is: "Eftirvinnsla", en: "Post-Production" },
+          items: {
+            is: ["Klipping og samsetning", "Litastilling", "Hljóðhönnun og tónlist", "Hreyfimyndir og textagerð"],
+            en: ["Editing and assembly", "Color grading", "Sound design and music", "Motion graphics and titling"],
+          },
+        },
+        {
+          title: { is: "Birting", en: "Publishing" },
+          items: {
+            is: ["Aðlögun fyrir mismunandi vettvangi", "Birting og dreifing"],
+            en: ["Platform-specific optimization", "Publishing and distribution"],
+          },
+        },
+      ],
+      idealFor: {
+        is: "Hentar fyrir: Vörumerki, fyrirtæki, sprotafyrirtæki og ferðaþjónustufyrirtæki sem vilja áhrifamikið sjónrænt efni sem skilar árangri.",
+        en: "Ideal for: Brands, businesses, startups, and tourism companies looking for engaging visual content that drives results.",
+      },
+    },
+
+    creative: {
+      title: { is: "Skapandi og tilraunakennd vinna", en: "Creative & Experimental Work" },
+      subtitle: {
+        is: "Listræn verkefni þar sem skapandi frelsi ræður för.",
+        en: "Artistic projects where creative freedom leads the way.",
+      },
+      description: {
+        is: "Fyrir þau verkefni sem falla utan hefðbundins viðskiptaramma. Við tökum að okkur listræn samstarfsverkefni, áhugaverkefni og tilraunamyndir sem þenja mörkin og skoða nýjar leiðir í sjónrænni frásögn.",
+        en: "For projects that go beyond the conventional commercial framework. We take on artistic collaborations, passion projects, and experimental films that push boundaries and explore new forms of visual storytelling.",
+      },
+      includes: {
+        is: "Þetta felur í sér:",
+        en: "This includes:",
+      },
+      items: {
+        is: [
+          "Listræn samstarfsverkefni með vörumerkjum",
+          "Áhugaverkefni og tilraunakvikmyndir",
+          "Tilraunakennd sjónræn frásögn",
+          "Verkefni sem þenja skapandi mörk",
+        ],
+        en: [
+          "Artistic brand collaborations",
+          "Passion projects and spec work",
+          "Experimental films and visual storytelling",
+          "Projects that push creative boundaries",
+        ],
+      },
+      approach: {
+        is: "Nálgun okkar:",
+        en: "Our approach:",
+      },
+      approachItems: {
+        is: [
+          "Samstarfsskapandi ferli",
+          "Áhersla á listræna sýn og ekta frásögn",
+          "Könnandi og minna viðskiptalega drifin",
+          "Verkefni valin eftir skapandi samhljómi",
+        ],
+        en: [
+          "Collaborative creative process",
+          "Focus on artistic vision and authentic storytelling",
+          "More exploratory and less commercially driven",
+          "Projects selected based on creative alignment",
+        ],
+      },
+      idealFor: {
+        is: "Hentar fyrir: Vörumerki og einstaklinga sem meta listræna sýn, tilraunakenndar aðferðir og eru opnir fyrir skapandi áhættutöku.",
+        en: "Ideal for: Brands and individuals who value artistic vision, experimental approaches, and are open to creative risk-taking.",
+      },
+    },
+
+    // Shared process section
+    process: {
+      heading: {
+        is: "Ferlið okkar",
+        en: "Our Process",
+      },
+      subtitle: {
+        is: "Sveigjanlegt, samstarfsmiðað og á mannamáli — sama hvaða leið þú velur.",
+        en: "Agile, collaborative, and personal — regardless of which track you choose.",
+      },
+      steps: [
+        {
+          number: "01",
+          title: { is: "Spjallað", en: "Conversation" },
+          description: {
+            is: "Við byrjum á samtali. Hvað viltu segja? Fyrir hvern? Hvert er markmiðið?",
+            en: "We start with a conversation. What do you want to say? For whom? What's the goal?",
+          },
+        },
+        {
+          number: "02",
+          title: { is: "Hugmynd", en: "Concept" },
+          description: {
+            is: "Við þróum hugmyndina, búum til sögurás og leggjum áætlunina.",
+            en: "We develop the concept, create a storyboard, and lay out the plan.",
+          },
+        },
+        {
+          number: "03",
+          title: { is: "Framleiðsla", en: "Production" },
+          description: {
+            is: "Tökur, leikstjórn og kvikmyndataka — allt með litlu liði og stórum hugmyndum.",
+            en: "Filming, direction, and cinematography — all with a small team and big ideas.",
+          },
+        },
+        {
+          number: "04",
+          title: { is: "Afhending", en: "Delivery" },
+          description: {
+            is: "Eftirvinnsla, frágangs og afhending — fullbúið og tilbúið til birtingar.",
+            en: "Post-production, finishing, and delivery — polished and ready to publish.",
+          },
+        },
+      ],
+      tagline: {
+        is: "Lítið teymi. Stór skapandi áhrif.",
+        en: "Small team. Big creative impact.",
+      },
+    },
+
+    cta: {
+      heading: {
+        is: "Átt þú verkefni í huga?",
+        en: "Have a project in mind?",
+      },
+      description: {
+        is: "Segðu okkur frá hugmyndinni þinni — hvort sem hún er viðskiptaleg eða listræn.",
+        en: "Tell us about your idea — whether it's commercial or artistic.",
+      },
+      button: {
+        is: "Byrjum saman",
+        en: "Let's get started",
+      },
+    },
+  },
+
+  // ──────────────────────────────────────
+  // About page
+  // ──────────────────────────────────────
+  about: {
+    heading: {
+      is: "Um Artik",
+      en: "About Artik",
+    },
+
+    storyHeading: {
+      is: "Sagan okkar",
+      en: "Our Story",
+    },
+    storyP1: {
+      is: "Artik var stofnað til að bjóða upp á annan valkost — persónulegri, skapandi og listrænni nálgun á myndbandsframleiðslu. Við trúum á að sterk sjónræn frásögn getur breytt öllu, hvort sem markmiðið er viðskiptalegt eða listrænt.",
+      en: "Artik was founded to offer an alternative — a more personal, creative, and artistic approach to video production. We believe that powerful visual storytelling can change everything, whether the goal is commercial or artistic.",
+    },
+    storyP2: {
+      is: "Sem lítil, sveigjanleg skapandi stofa höfum við frelsið til að velja verkefni sem hreyfa við okkur og vinna náið með viðskiptavinum okkar. Engin fyrirtækjaleg fjarlægð — bara hreinn skapandi kraftur.",
+      en: "As a small, agile creative agency, we have the freedom to choose projects that move us and work closely with our clients. No corporate distance — just pure creative energy.",
+    },
+
+    differenceHeading: {
+      is: "Hvað gerir okkur öðruvísi",
+      en: "What Makes Us Different",
+    },
+    differences: {
+      is: [
+        "Persónuleg og einlæg nálgun",
+        "Íslenskt skapandi sjónarhorn",
+        "Tilraunakennd og listræn sýn",
+        "Lítið liðið, skjót og sveigjanleg vinnubrögð",
+        "Full framleiðslulína undir einu þaki",
+      ],
+      en: [
+        "Personal and sincere approach",
+        "Icelandic creative perspective",
+        "Experimental and artistic vision",
+        "Small team, fast and agile workflow",
+        "Full production pipeline under one roof",
+      ],
+    },
+
+    teamHeading: {
+      is: "Teymið",
+      en: "The Team",
+    },
+    teamDescription: {
+      is: "Artik er knúið áfram af litlu teymi skapandi fólks sem deila ástríðu fyrir sjónrænni frásögn og tilraunakenndum verkefnum.",
+      en: "Artik is driven by a small team of creatives who share a passion for visual storytelling and experimental projects.",
+    },
+    teamMembers: [
+      {
+        name: "Stofnandi / Creative Director",
+        role: { is: "Stofnandi og skapandi stjórnandi", en: "Founder & Creative Director" },
+        bio: {
+          is: "Reynsla í kvikmyndagerð og sjónrænni frásögn. Leiðir sýn Artik og tryggir að hvert verkefni nái skapandi hæðum.",
+          en: "Background in filmmaking and visual storytelling. Leads Artik's vision and ensures every project reaches creative heights.",
+        },
+      },
+    ],
+
+    icelandHeading: {
+      is: "Af hverju Ísland?",
+      en: "Why Iceland?",
+    },
+    icelandP1: {
+      is: "Ísland er ekki bara heimili okkar — það er grunnurinn að öllu sem við gerum. Dramatískt landslag, breytileg birta og hrá náttúra hafa mótað sjónræna sýn okkar frá fyrsta degi.",
+      en: "Iceland isn't just our home — it's the foundation of everything we do. Dramatic landscapes, shifting light, and raw nature have shaped our visual perspective from day one.",
+    },
+    icelandP2: {
+      is: "Við vinnum á heimsvísu en berum alltaf með okkur íslenskt sjónarhorn — hreint, djúpt og óhrætt.",
+      en: "We work globally but always carry an Icelandic perspective — clean, deep, and fearless.",
+    },
+  },
+
+  // ──────────────────────────────────────
+  // Work / Portfolio page
+  // ──────────────────────────────────────
   portfolio: {
     heading: {
       is: "Verkefni",
       en: "Our Work",
     },
     subtitle: {
-      is: "Úrval af kvikmynda- og myndbandsverkefnum okkar.",
-      en: "A selection of our film and video projects.",
+      is: "Úrval af nýlegum verkefnum og tilraunavinnu.",
+      en: "A selection of recent projects and experimental work.",
     },
     watchProject: {
       is: "Horfa á verkefni",
@@ -74,179 +440,99 @@ export const translations = {
       is: "Allt",
       en: "All",
     },
-  },
-
-  // About
-  about: {
-    heading: {
-      is: "Um Artik",
-      en: "About Artik",
+    comingSoon: {
+      is: "Fleiri verkefni á leiðinni",
+      en: "More projects coming soon",
     },
-    storyHeading: {
-      is: "Sagan okkar",
-      en: "Our Story",
+    comingSoonDescription: {
+      is: "Við erum að vinna með spennandi vörumerkjum og listamönnum. Fylgist með — nýtt efni birtist fljótlega.",
+      en: "We're currently working with exciting brands and artists. Stay tuned — new content dropping soon.",
     },
-    storyP1: {
-      is: "Artik er kvikmynda- og myndbandsverkstæði með aðsetur á Íslandi. Við erum sprottin upp úr dramatískri náttúru Íslands og sækjum innblástur í landið sem umkringir okkur — jökla, eldfjöll, víðerni og birtu sem breytist á hverjum augnabliki.",
-      en: "Artik is a film and video production studio based in Iceland. Born from Iceland's dramatic landscapes, we draw inspiration from the world around us — glaciers, volcanoes, vast wilderness, and ever-changing light.",
-    },
-    storyP2: {
-      is: "Við trúum á kraft sjónrænna sagna. Hvert verkefni er tækifæri til að skapa eitthvað sem skiptir máli — hvort sem það er kvikmyndasöguleg, auglýsing eða tónlistarmyndband.",
-      en: "We believe in the power of visual storytelling. Every project is an opportunity to create something that matters — whether it's a documentary, a commercial, or a music video.",
-    },
-    approachHeading: {
-      is: "Nálgun okkar",
-      en: "Our Approach",
-    },
-    approachP1: {
-      is: "Við nálgumst hvert verkefni af athygli og einlægni. Frá fyrstu hugmynd að lokaafurð, vinnum við náið með viðskiptavinum okkar til að tryggja að sýn þeirra verði að veruleika.",
-      en: "We approach every project with care and sincerity. From initial concept to final delivery, we work closely with our clients to ensure their vision becomes reality.",
-    },
-    values: {
-      is: [
-        "Sköpunarkraftur án málamiðlana",
-        "Vandað handverk í hverju smáatriði",
-        "Söguþráður sem hreyfir við fólki",
-        "Samvinna sem skilar árangri",
-      ],
-      en: [
-        "Creativity without compromise",
-        "Craftsmanship in every detail",
-        "Storytelling that moves people",
-        "Collaboration that delivers results",
-      ],
+    interested: {
+      is: "Áhugasamur um að vinna saman?",
+      en: "Interested in working together?",
     },
   },
 
-  // Services
-  services: {
-    heading: {
-      is: "Þjónusta",
-      en: "Services",
-    },
-    subtitle: {
-      is: "Frá hugmynd til lokaafurðar — við sjáum um allt.",
-      en: "From concept to final cut — we handle everything.",
-    },
-    items: [
-      {
-        title: { is: "Kvikmyndagerð", en: "Film Production" },
-        description: {
-          is: "Full kvikmyndaþjónusta frá undirbúningi til eftirvinnsl. Við sérhæfum okkur í heimildarmyndum, stuttmyndum og viðskiptamyndböndum sem segja sögur á áhrifamikinn hátt.",
-          en: "Full film production services from pre-production to post. We specialize in documentaries, short films, and commercial video that tells stories in compelling ways.",
-        },
-        features: {
-          is: [
-            "Handritun og undirbúningur",
-            "Tökur á staðnum",
-            "Klipping og eftirvinnnsla",
-            "Hljóðhönnun",
-          ],
-          en: [
-            "Script development and pre-production",
-            "On-location filming",
-            "Editing and post-production",
-            "Sound design",
-          ],
-        },
-      },
-      {
-        title: { is: "Auglýsingamyndir", en: "Commercial Content" },
-        description: {
-          is: "Fagleg auglýsingamyndbönd og efni fyrir vörumerki sem vilja skera sig úr. Við sköpum sjónrænt efni sem fangar athygli og skilur eftir sig varanleg áhrif.",
-          en: "Professional commercial videos and branded content for companies that want to stand out. We create visual content that captures attention and leaves a lasting impression.",
-        },
-        features: {
-          is: [
-            "Vörumerkjamyndbönd",
-            "Auglýsingar fyrir samfélagsmiðla",
-            "Vöruefni og kynningar",
-            "Loftmyndir og drónur",
-          ],
-          en: [
-            "Brand films",
-            "Social media advertising",
-            "Product content and launches",
-            "Aerial and drone footage",
-          ],
-        },
-      },
-      {
-        title: { is: "Skapandi ráðgjöf", en: "Creative Consulting" },
-        description: {
-          is: "Við hjálpum vörumerkjum og fyrirtækjum að þróa sjónræna stefnu og skapandi lausnir sem endurspegla gildi þeirra og höfða til markhóps þeirra.",
-          en: "We help brands and organizations develop visual strategy and creative solutions that reflect their values and speak to their audience.",
-        },
-        features: {
-          is: [
-            "Sjónræn stefnumótun",
-            "Skapandi áætlanagerð",
-            "Innihaldsstefna",
-            "Markhópagreining",
-          ],
-          en: [
-            "Visual strategy development",
-            "Creative planning",
-            "Content strategy",
-            "Audience analysis",
-          ],
-        },
-      },
-    ],
-    cta: {
-      heading: {
-        is: "Átt þú verkefni í huga?",
-        en: "Have a project in mind?",
-      },
-      description: {
-        is: "Við viljum heyra frá þér. Segðu okkur frá hugmyndinni þinni og við munum koma til baka með tillögu.",
-        en: "We'd love to hear from you. Tell us about your idea and we'll get back to you with a proposal.",
-      },
-      button: {
-        is: "Byrjum saman",
-        en: "Let's get started",
-      },
-    },
-  },
-
-  // Contact
+  // ──────────────────────────────────────
+  // Contact page
+  // ──────────────────────────────────────
   contact: {
     heading: {
       is: "Hafa samband",
       en: "Get in Touch",
     },
     subtitle: {
-      is: "Segðu okkur frá verkefninu þínu og við munum hafa samband við þig fljótlega.",
+      is: "Segðu okkur frá verkefninu þínu og við munum hafa samband fljótlega.",
       en: "Tell us about your project and we'll be in touch soon.",
+    },
+    tagline: {
+      is: "Sköpum eitthvað saman",
+      en: "Let's create something together",
     },
     form: {
       name: { is: "Nafn", en: "Name" },
       email: { is: "Netfang", en: "Email" },
+      company: { is: "Fyrirtæki / Stofnun", en: "Company / Organization" },
+      companyPlaceholder: { is: "Valfrjálst", en: "Optional" },
       projectType: { is: "Tegund verkefnis", en: "Project Type" },
-      message: { is: "Skilaboð", en: "Message" },
-      language: { is: "Tungumálaval", en: "Language preference" },
-      submit: { is: "Senda skilaboð", en: "Send message" },
+      platforms: { is: "Vettvangar (ef við á)", en: "Preferred platforms (if applicable)" },
+      timeline: { is: "Tímalína verkefnis", en: "Project Timeline" },
+      budget: { is: "Fjárhagsáætlun", en: "Budget Range" },
+      message: { is: "Skilaboð / Lýsing verkefnis", en: "Message / Project Description" },
+      language: { is: "Tungumálaval", en: "Preferred Language" },
+      submit: { is: "Senda fyrirspurn", en: "Send inquiry" },
       sending: { is: "Sendi...", en: "Sending..." },
       namePlaceholder: { is: "Fullt nafn", en: "Your full name" },
       emailPlaceholder: { is: "netfang@dæmi.is", en: "you@example.com" },
       messagePlaceholder: {
-        is: "Segðu okkur frá verkefninu þínu...",
-        en: "Tell us about your project...",
+        is: "Segðu okkur frá verkefninu þínu — hvað, fyrir hvern, og hvenær?",
+        en: "Tell us about your project — what, for whom, and when?",
       },
       projectTypes: {
         is: [
-          "Kvikmyndagerð",
-          "Auglýsingamynd",
-          "Heimildarmynd",
-          "Tónlistarmyndband",
-          "Annað",
+          "Viðskipta- og vörumerkjaframleiðsla",
+          "Skapandi og tilraunakennd vinna",
+          "Veit ekki enn",
         ],
         en: [
-          "Film Production",
-          "Commercial",
-          "Documentary",
-          "Music Video",
-          "Other",
+          "Commercial & Brand Production",
+          "Creative & Experimental Work",
+          "Not sure yet",
+        ],
+      },
+      platformOptions: {
+        is: ["TikTok", "Instagram", "YouTube", "Annað"],
+        en: ["TikTok", "Instagram", "YouTube", "Other"],
+      },
+      timelineOptions: {
+        is: [
+          "Strax / ASAP",
+          "1–2 mánuðir",
+          "3–6 mánuðir",
+          "Sveigjanleg tímalína",
+        ],
+        en: [
+          "Immediately / ASAP",
+          "1–2 months",
+          "3–6 months",
+          "Flexible timeline",
+        ],
+      },
+      budgetOptions: {
+        is: [
+          "Undir 500.000 kr",
+          "500.000 – 1.500.000 kr",
+          "1.500.000 – 5.000.000 kr",
+          "Yfir 5.000.000 kr",
+          "Vil ekki gefa upp",
+        ],
+        en: [
+          "Under $5,000",
+          "$5,000 – $15,000",
+          "$15,000 – $50,000",
+          "Over $50,000",
+          "Prefer not to say",
         ],
       },
       languageOptions: {
@@ -264,18 +550,9 @@ export const translations = {
     },
     validation: {
       nameRequired: { is: "Nafn er nauðsynlegt", en: "Name is required" },
-      emailRequired: {
-        is: "Netfang er nauðsynlegt",
-        en: "Email is required",
-      },
-      emailInvalid: {
-        is: "Ógilt netfang",
-        en: "Please enter a valid email",
-      },
-      messageRequired: {
-        is: "Skilaboð eru nauðsynleg",
-        en: "Message is required",
-      },
+      emailRequired: { is: "Netfang er nauðsynlegt", en: "Email is required" },
+      emailInvalid: { is: "Ógilt netfang", en: "Please enter a valid email" },
+      messageRequired: { is: "Skilaboð eru nauðsynleg", en: "Message is required" },
     },
     info: {
       emailLabel: { is: "Netfang", en: "Email" },
@@ -285,11 +562,13 @@ export const translations = {
     },
   },
 
+  // ──────────────────────────────────────
   // Footer
+  // ──────────────────────────────────────
   footer: {
     tagline: {
-      is: "Sjónrænar sögur frá norðri",
-      en: "Visual stories from the North",
+      is: "Djörf framleiðsla. Íslensk sál.",
+      en: "Bold production. Icelandic soul.",
     },
     copyright: {
       is: "Öll réttindi áskilin.",
@@ -300,14 +579,17 @@ export const translations = {
   },
 };
 
-// Project data - easily editable
+// ──────────────────────────────────────
+// Project data — easily editable
+// ──────────────────────────────────────
+
 export interface Project {
   id: string;
   title: { is: string; en: string };
   description: { is: string; en: string };
   category: { is: string; en: string };
-  thumbnail: string; // path to thumbnail image in /public/projects/
-  videoUrl: string; // Vimeo or YouTube embed URL
+  thumbnail: string;
+  videoUrl: string;
 }
 
 export const projects: Project[] = [
@@ -321,22 +603,8 @@ export const projects: Project[] = [
       is: "Heimildarmynd um norðurljósin og áhrif þeirra á menningu og vísindi á Íslandi.",
       en: "A documentary exploring the northern lights and their impact on Icelandic culture and science.",
     },
-    category: { is: "Heimildarmynd", en: "Documentary" },
+    category: { is: "Skapandi verk", en: "Creative" },
     thumbnail: "/projects/project-1.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: "glacier-symphony",
-    title: {
-      is: "Jöklasamljómur",
-      en: "Glacier Symphony",
-    },
-    description: {
-      is: "Stuttmynd um hljóðheiminn sem býr í jöklum Íslands og breytingarnar sem þeir gangast undir.",
-      en: "A short film about the soundscapes living within Iceland's glaciers and the changes they undergo.",
-    },
-    category: { is: "Stuttmynd", en: "Short Film" },
-    thumbnail: "/projects/project-2.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
@@ -346,11 +614,11 @@ export const projects: Project[] = [
       en: "Icelandair: Discover Iceland",
     },
     description: {
-      is: "Auglýsingaherferð fyrir Icelandair sem sýnir fegurð og fjölbreytileika Íslands.",
-      en: "An advertising campaign for Icelandair showcasing the beauty and diversity of Iceland.",
+      is: "Auglýsingaherferð fyrir Icelandair sem sýnir fegurð og fjölbreytileika Íslands á samfélagsmiðlum.",
+      en: "A social-first advertising campaign for Icelandair showcasing the beauty and diversity of Iceland.",
     },
-    category: { is: "Auglýsing", en: "Commercial" },
-    thumbnail: "/projects/project-3.jpg",
+    category: { is: "Viðskiptaverk", en: "Commercial" },
+    thumbnail: "/projects/project-2.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
@@ -360,11 +628,11 @@ export const projects: Project[] = [
       en: "Volcanic Voices",
     },
     description: {
-      is: "Tónlistarmyndband tekið við virkt eldfjall á Íslandi. Samstarf við íslenskan tónlistarmann.",
-      en: "A music video filmed at an active Icelandic volcano. A collaboration with an Icelandic musician.",
+      is: "Tilraunamynd tekin við virkt eldfjall á Íslandi. Samstarf við íslenskan tónlistarmann.",
+      en: "An experimental film shot at an active Icelandic volcano. A collaboration with an Icelandic musician.",
     },
-    category: { is: "Tónlistarmyndband", en: "Music Video" },
-    thumbnail: "/projects/project-4.jpg",
+    category: { is: "Skapandi verk", en: "Creative" },
+    thumbnail: "/projects/project-3.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
 ];
