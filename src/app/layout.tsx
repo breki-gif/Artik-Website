@@ -3,15 +3,19 @@ import { LanguageProvider } from "@/lib/language-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Artik — Creative Production, Reykjavík",
-  description:
-    "Artik is a creative production agency based in Reykjavík, Iceland.",
+  title: "Artik - Creative Studios",
+  description: "Creative production studio in Reykjavík, Iceland",
   openGraph: {
-    title: "Artik — Creative Production, Reykjavík",
-    description: "Creative production agency based in Reykjavík, Iceland.",
+    title: "Artik - Creative Studios",
+    description: "Creative production studio in Reykjavík, Iceland",
+    siteName: "Artik",
     locale: "is_IS",
     alternateLocale: "en_US",
     type: "website",
+  },
+  twitter: {
+    title: "Artik - Creative Studios",
+    description: "Creative production studio in Reykjavík, Iceland",
   },
 };
 
