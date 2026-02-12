@@ -84,12 +84,12 @@ export default function HomePage() {
           </ScrollReveal>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Commercial */}
+            {/* Social Media Content */}
             <ScrollReveal delay={0.1}>
               <div className="group p-8 lg:p-10 bg-surface/50 rounded-xl hover:bg-surface transition-colors duration-300 h-full flex flex-col border border-ice-white/5">
-                <div className="w-10 h-10 rounded-full bg-glacial/15 flex items-center justify-center mb-6">
-                  <svg className="w-5 h-5 text-glacial" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                <div className="w-10 h-10 rounded-full bg-ember/10 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-ice-white">
@@ -100,7 +100,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/services"
-                  className="mt-6 inline-flex items-center text-sm text-glacial hover:text-glacial-light font-medium transition-colors duration-200"
+                  className="mt-6 inline-flex items-center text-sm text-ember hover:text-ember-light font-medium transition-colors duration-200"
                 >
                   {t(translations.servicesPreview.learnMore)}
                   <span className="ml-1">&rarr;</span>
@@ -124,7 +124,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/services"
-                  className="mt-6 inline-flex items-center text-sm text-glacial hover:text-glacial-light font-medium transition-colors duration-200"
+                  className="mt-6 inline-flex items-center text-sm text-ember hover:text-ember-light font-medium transition-colors duration-200"
                 >
                   {t(translations.servicesPreview.learnMore)}
                   <span className="ml-1">&rarr;</span>
