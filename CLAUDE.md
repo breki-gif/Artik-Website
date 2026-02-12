@@ -4,36 +4,53 @@ This file provides context for AI assistants (Claude, Copilot, etc.) working on 
 
 ## Project Overview
 
-Artik Website is a web project. The repository is currently in its initial stage — no framework or tech stack has been chosen yet.
+Artik Website is a bilingual (Icelandic/English) website for Artik, a video/film production creative studio based in Iceland. The site showcases portfolio work through a minimal, clean aesthetic inspired by the Icelandic landscape.
 
 **Repository:** `breki-gif/Artik-Website`
 
-## Current State
+## Tech Stack
 
-This is a newly initialized repository. No source code, configuration files, or dependencies exist yet. The sections below should be updated as the project takes shape.
+- **Framework:** Next.js 16 (App Router) with React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Font:** Inter (via Google Fonts CDN)
+- **Package Manager:** npm
 
 ## Project Structure
 
 ```
 Artik-Website/
-├── CLAUDE.md          # AI assistant context (this file)
-└── (empty — project scaffolding not yet created)
+├── CLAUDE.md                    # AI assistant context (this file)
+├── README.md                    # Project documentation
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── postcss.config.mjs
+├── eslint.config.mjs
+├── public/
+│   └── projects/                # Project thumbnail images
+│       └── .gitkeep
+└── src/
+    ├── app/
+    │   ├── globals.css          # Global styles + Tailwind + color palette
+    │   ├── layout.tsx           # Root layout with providers, navbar, footer
+    │   ├── page.tsx             # Homepage
+    │   ├── portfolio/page.tsx   # Portfolio with video modal
+    │   ├── about/page.tsx       # About/Studio page
+    │   ├── services/page.tsx    # Services page
+    │   └── contact/page.tsx     # Contact form page
+    ├── components/
+    │   ├── navbar.tsx           # Navigation with language toggle
+    │   ├── footer.tsx           # Site footer
+    │   ├── scroll-reveal.tsx    # Scroll-triggered animation wrapper
+    │   └── video-modal.tsx      # Video player modal (YouTube/Vimeo)
+    └── lib/
+        ├── language-context.tsx # React context for bilingual support
+        └── translations.ts     # All translations (IS/EN) + project data
 ```
 
-> **Update this section** once the project is scaffolded with a framework (e.g., Next.js, Vite + React, Astro, etc.).
-
-## Tech Stack
-
-Not yet determined. Update this section when the stack is chosen. Common choices for a modern website:
-
-- **Framework:** (e.g., Next.js, Astro, Vite + React, SvelteKit)
-- **Language:** (e.g., TypeScript, JavaScript)
-- **Styling:** (e.g., Tailwind CSS, CSS Modules, styled-components)
-- **Package Manager:** (e.g., npm, pnpm, yarn)
-
 ## Development Commands
-
-> Update these once `package.json` exists.
 
 ```bash
 # Install dependencies
@@ -47,66 +64,75 @@ npm run build
 
 # Run linter
 npm run lint
-
-# Run tests
-npm test
 ```
+
+## Key Files for Content Updates
+
+- **Translations:** `src/lib/translations.ts` — All bilingual text content
+- **Projects:** `src/lib/translations.ts` (bottom of file) — Project data array
+- **Color palette:** `src/app/globals.css` — CSS custom properties in `@theme`
+- **Layout/SEO:** `src/app/layout.tsx` — Metadata, font, and page structure
+
+## Color Palette
+
+| Color | Hex | CSS Variable | Usage |
+|-------|-----|-------------|-------|
+| Glacial blue | `#8fb8ca` | `--color-glacial` | Primary accent |
+| Lava black | `#1a1a1a` | `--color-lava-black` | Text, dark backgrounds |
+| Lava red | `#c23b22` | `--color-lava-red` | CTA buttons, accents |
+| Moss green | `#5a7247` | `--color-moss` | Secondary accent, success |
+| Ice white | `#f5f5f0` | `--color-ice-white` | Backgrounds |
+
+## Bilingual System
+
+The site uses a React context-based language system:
+- `LanguageProvider` wraps the entire app in `layout.tsx`
+- `useLanguage()` hook returns `{ locale, setLocale, t }`
+- `t(obj)` resolves `{ is: "...", en: "..." }` based on current locale
+- Language preference persists via `localStorage`
+- Toggle between IS/EN in the navbar
 
 ## Development Conventions
 
 ### General
 
-- Prefer TypeScript over JavaScript where possible
-- Use consistent naming conventions throughout the codebase
-- Keep components small and focused on a single responsibility
-- Write meaningful commit messages describing the "why" not just the "what"
+- Prefer TypeScript over JavaScript
+- Use kebab-case for file names
+- Keep components small and focused
+- All user-facing text must be bilingual (add to `translations.ts`)
 
-### File & Directory Naming
+### Adding a New Project
 
-- Use kebab-case for file and directory names (e.g., `user-profile.tsx`)
-- Use PascalCase for React/component files if that is the project convention
-- Group related files together by feature or domain
+1. Add a thumbnail image to `public/projects/`
+2. Add a new entry to the `projects` array in `src/lib/translations.ts`
+3. Set `videoUrl` to a YouTube/Vimeo embed URL
 
-### Code Style
+### Adding New Translations
 
-- Follow the linter/formatter configuration established in the project
-- Do not disable lint rules without a comment explaining why
-- Prefer named exports over default exports for better refactoring support
-
-### Git Workflow
-
-- Create feature branches off the main branch
-- Keep commits atomic — one logical change per commit
-- Do not commit secrets, API keys, or `.env` files
+Add entries to the `translations` object in `src/lib/translations.ts` with both `is` and `en` keys.
 
 ## Environment Variables
 
-> Document required environment variables here once they exist.
+No environment variables are required for the base site. If adding a form backend:
 
 ```
-# Example:
-# NEXT_PUBLIC_API_URL=https://api.example.com
-# DATABASE_URL=postgresql://...
+# Example for FormSpree
+NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxx
 ```
-
-Copy `.env.example` to `.env.local` (or `.env`) and fill in the values.
-
-## Testing
-
-No testing framework has been configured yet. Update this section when tests are added.
 
 ## Deployment
 
-No deployment pipeline has been configured yet. Update this section when CI/CD or hosting is set up.
+Optimized for Vercel. Deploy by connecting the GitHub repository to Vercel or run:
+
+```bash
+npm run build
+```
 
 ## Key Decisions Log
-
-Track major architectural and tooling decisions here so future contributors (human or AI) understand the rationale.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | 2026-02-12 | Repository created | Initial project setup |
-
----
-
-*Keep this file up to date as the project evolves. When adding a new framework, dependency, or convention, update the relevant section above.*
+| 2026-02-12 | Next.js 16 + Tailwind CSS v4 + Framer Motion | Modern stack, Vercel-optimized, animation support |
+| 2026-02-12 | Context-based bilingual system | Simple, no routing overhead, localStorage persistence |
+| 2026-02-12 | Icelandic landscape color palette | Brand alignment with Icelandic minimalism |
