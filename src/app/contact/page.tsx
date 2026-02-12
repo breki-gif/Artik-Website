@@ -63,7 +63,6 @@ export default function ContactPage() {
 
     setStatus("sending");
     try {
-      // Replace with actual endpoint (FormSpree, Netlify Forms, API route)
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus("success");
       setFormData({
@@ -102,16 +101,20 @@ export default function ContactPage() {
   };
 
   const inputClasses = (hasError?: string) =>
-    `w-full px-4 py-3 bg-surface/50 border rounded-lg text-ice-white placeholder:text-ice-white/25 focus:outline-none focus:ring-2 focus:ring-ember/30 transition-colors ${
-      hasError ? "border-ember" : "border-ice-white/10"
+    `w-full px-4 py-3 bg-surface/60 border rounded-lg text-ice-white placeholder:text-ice-white/20 focus:outline-none focus:ring-2 transition-all duration-300 ${
+      hasError ? "border-fire/50 focus:ring-fire/30" : "border-ice-white/[0.06] focus:ring-ice/30 focus:border-ice/30"
     }`;
 
   const selectClasses =
-    "w-full px-4 py-3 bg-surface/50 border border-ice-white/10 rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-ember/30 transition-colors";
+    "w-full px-4 py-3 bg-surface/60 border border-ice-white/[0.06] rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-ice/30 focus:border-ice/30 transition-all duration-300";
 
   return (
-    <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-lava-black">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-void relative overflow-hidden">
+      {/* Background orbs */}
+      <div className="absolute top-20 right-0 w-[500px] h-[500px] orb-fire opacity-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] orb-ice opacity-10 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <ScrollReveal>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ice-white">
             {t(translations.contact.heading)}
@@ -128,7 +131,7 @@ export default function ContactPage() {
               {/* Name & Email row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.name)} *
                   </label>
                   <input
@@ -140,10 +143,10 @@ export default function ContactPage() {
                     placeholder={t(translations.contact.form.namePlaceholder)}
                     className={inputClasses(errors.name)}
                   />
-                  {errors.name && <p className="mt-1.5 text-sm text-ember">{errors.name}</p>}
+                  {errors.name && <p className="mt-1.5 text-sm text-fire">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.email)} *
                   </label>
                   <input
@@ -155,13 +158,13 @@ export default function ContactPage() {
                     placeholder={t(translations.contact.form.emailPlaceholder)}
                     className={inputClasses(errors.email)}
                   />
-                  {errors.email && <p className="mt-1.5 text-sm text-ember">{errors.email}</p>}
+                  {errors.email && <p className="mt-1.5 text-sm text-fire">{errors.email}</p>}
                 </div>
               </div>
 
               {/* Company */}
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-ice-white/70 mb-2">
+                <label htmlFor="company" className="block text-sm font-medium text-ice-white/60 mb-2">
                   {t(translations.contact.form.company)}
                 </label>
                 <input
@@ -178,7 +181,7 @@ export default function ContactPage() {
               {/* Project Type & Timeline row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="projectType" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.projectType)} *
                   </label>
                   <select
@@ -195,7 +198,7 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="timeline" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.timeline)}
                   </label>
                   <select
@@ -215,7 +218,7 @@ export default function ContactPage() {
 
               {/* Platforms */}
               <div>
-                <label className="block text-sm font-medium text-ice-white/70 mb-3">
+                <label className="block text-sm font-medium text-ice-white/60 mb-3">
                   {t(translations.contact.form.platforms)}
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -224,10 +227,10 @@ export default function ContactPage() {
                       key={platform}
                       type="button"
                       onClick={() => handlePlatformToggle(platform)}
-                      className={`px-4 py-2 text-sm rounded-full border transition-colors duration-200 ${
+                      className={`px-4 py-2 text-sm rounded-full border transition-all duration-300 ${
                         formData.platforms.includes(platform)
-                          ? "bg-ember text-ice-white border-ember"
-                          : "border-ice-white/15 text-ice-white/50 hover:border-ice-white/30"
+                          ? "bg-fire text-white border-fire glow-fire-sm"
+                          : "border-ice-white/10 text-ice-white/40 hover:border-fire/30 hover:text-fire"
                       }`}
                     >
                       {platform}
@@ -239,7 +242,7 @@ export default function ContactPage() {
               {/* Budget & Language row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.budget)}
                   </label>
                   <select
@@ -256,7 +259,7 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="language" className="block text-sm font-medium text-ice-white/70 mb-2">
+                  <label htmlFor="language" className="block text-sm font-medium text-ice-white/60 mb-2">
                     {t(translations.contact.form.language)}
                   </label>
                   <select
@@ -275,7 +278,7 @@ export default function ContactPage() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-ice-white/70 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-ice-white/60 mb-2">
                   {t(translations.contact.form.message)} *
                 </label>
                 <textarea
@@ -287,14 +290,14 @@ export default function ContactPage() {
                   placeholder={t(translations.contact.form.messagePlaceholder)}
                   className={`${inputClasses(errors.message)} resize-none`}
                 />
-                {errors.message && <p className="mt-1.5 text-sm text-ember">{errors.message}</p>}
+                {errors.message && <p className="mt-1.5 text-sm text-fire">{errors.message}</p>}
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="px-8 py-3.5 bg-ember text-ice-white font-medium tracking-wide rounded-full hover:bg-ember-light disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+                className="px-8 py-3.5 bg-fire text-white font-medium tracking-wide rounded-full glow-fire-sm hover:glow-fire disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 hover:scale-[1.02]"
               >
                 {status === "sending"
                   ? t(translations.contact.form.sending)
@@ -314,7 +317,7 @@ export default function ContactPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-ember font-medium"
+                  className="text-fire font-medium"
                 >
                   {t(translations.contact.error)}
                 </motion.p>
@@ -331,7 +334,7 @@ export default function ContactPage() {
                 </h3>
                 <a
                   href={`mailto:${translations.contact.info.emailValue}`}
-                  className="text-lg text-ember hover:text-ember-light transition-colors duration-200"
+                  className="text-lg text-fire hover:text-fire-light transition-colors duration-300"
                 >
                   {translations.contact.info.emailValue}
                 </a>
@@ -341,21 +344,23 @@ export default function ContactPage() {
                 <h3 className="text-sm font-medium tracking-wider uppercase text-ice-white/30 mb-3">
                   {t(translations.contact.info.locationLabel)}
                 </h3>
-                <p className="text-lg text-ice-white/60">
+                <p className="text-lg text-ice-white/50">
                   {t(translations.contact.info.locationValue)}
                 </p>
               </div>
 
-              <div className="mt-8 aspect-square bg-gradient-to-br from-ember/5 via-surface to-surface-light/50 rounded-xl flex items-center justify-center border border-ice-white/5">
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-ice-white/8 mb-2">64&deg;N</p>
-                  <p className="text-sm text-ice-white/20 tracking-wider">
+              <div className="mt-8 aspect-square bg-surface/40 rounded-2xl flex items-center justify-center border border-ice-white/[0.04] relative overflow-hidden">
+                <div className="absolute inset-0 orb-aurora opacity-20" />
+                <div className="absolute bottom-0 right-0 w-3/4 h-3/4 orb-fire opacity-15" />
+                <div className="relative text-center">
+                  <p className="text-4xl font-bold text-ice-white/10 mb-2">64&deg;N</p>
+                  <p className="text-sm text-ice-white/15 tracking-wider">
                     Reykjav&iacute;k
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs text-ice-white/25 italic">
+              <p className="text-xs text-ice-white/20 italic">
                 {t({
                   is: "Við svörum yfirleitt innan 24 klukkustunda.",
                   en: "We typically respond within 24 hours.",

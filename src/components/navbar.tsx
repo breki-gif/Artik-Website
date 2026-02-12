@@ -20,11 +20,11 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-lava-black/90 backdrop-blur-sm border-b border-ice-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-void/80 backdrop-blur-md border-b border-ice-white/[0.04]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="text-xl lg:text-2xl font-bold tracking-tight text-ice-white">
+          <Link href="/" className="text-xl lg:text-2xl font-bold tracking-tight text-ice-white text-glow-fire">
             ARTIK
           </Link>
 
@@ -34,10 +34,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors duration-200 ${
+                className={`text-sm tracking-wide transition-all duration-300 ${
                   pathname === link.href
-                    ? "text-ember font-medium"
-                    : "text-ice-white/60 hover:text-ice-white"
+                    ? "text-ice font-medium text-glow-ice"
+                    : "text-ice-white/60 hover:text-fire"
                 }`}
               >
                 {link.label}
@@ -47,7 +47,7 @@ export function Navbar() {
             {/* Language Toggle */}
             <button
               onClick={() => setLocale(locale === "is" ? "en" : "is")}
-              className="ml-4 px-3 py-1.5 text-xs font-medium tracking-wider border border-ice-white/20 rounded-full text-ice-white/70 hover:bg-ice-white hover:text-lava-black transition-colors duration-200"
+              className="ml-4 px-3 py-1.5 text-xs font-medium tracking-wider border border-ice-white/15 rounded-full text-ice-white/60 hover:border-fire/50 hover:text-fire transition-all duration-300"
               aria-label={
                 locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"
               }
@@ -60,7 +60,7 @@ export function Navbar() {
           <div className="flex items-center gap-4 md:hidden">
             <button
               onClick={() => setLocale(locale === "is" ? "en" : "is")}
-              className="px-2.5 py-1 text-xs font-medium tracking-wider border border-ice-white/20 rounded-full text-ice-white/70"
+              className="px-2.5 py-1 text-xs font-medium tracking-wider border border-ice-white/15 rounded-full text-ice-white/60"
               aria-label={
                 locale === "is" ? "Switch to English" : "Skipta yfir á íslensku"
               }
@@ -103,7 +103,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-ice-white/5 bg-lava-black overflow-hidden"
+            className="md:hidden border-t border-ice-white/[0.04] bg-void/95 backdrop-blur-md overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {links.map((link) => (
@@ -113,7 +113,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`text-lg ${
                     pathname === link.href
-                      ? "text-ember font-medium"
+                      ? "text-ice font-medium"
                       : "text-ice-white/60"
                   }`}
                 >
