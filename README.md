@@ -1,6 +1,8 @@
 # Artik — Visual Stories from the North
 
-Bilingual (Icelandic/English) website for Artik, a video and film production creative studio based in Iceland.
+Bilingual (Icelandic/English) website for Artik, a creative production studio based in Iceland specializing in social media content creation and experimental filmmaking.
+
+The design is inspired by Iceland's Northern Lights — volcanic fire (orange) colliding with glacial ice (cyan) over a dark night sky, with atmospheric glow effects and aurora purple accents.
 
 ## Quick Start
 
@@ -23,20 +25,26 @@ npm start
 ```
 src/
 ├── app/           # Next.js App Router pages
-│   ├── page.tsx           # Homepage
-│   ├── portfolio/page.tsx # Portfolio with video modal
+│   ├── globals.css        # Color palette, glow utilities, aurora effects
+│   ├── page.tsx           # Homepage (hero with orbs, services, pipeline, featured work)
+│   ├── services/page.tsx  # Services (social media + creative tracks)
 │   ├── about/page.tsx     # About the studio
-│   ├── services/page.tsx  # Services offered
-│   └── contact/page.tsx   # Contact form
+│   └── contact/page.tsx   # Contact form with glow effects
 ├── components/    # Reusable UI components
-│   ├── navbar.tsx         # Navigation + language toggle
-│   ├── footer.tsx         # Site footer
+│   ├── navbar.tsx         # Glass-morphism nav + language toggle
+│   ├── footer.tsx         # Footer with aurora gradient divider
 │   ├── scroll-reveal.tsx  # Scroll animation wrapper
 │   └── video-modal.tsx    # Video player modal
 └── lib/           # Shared logic
     ├── language-context.tsx  # Bilingual context provider
     └── translations.ts      # All text content + project data
 ```
+
+## Services
+
+**Service #1: Social Media Content Creation** — Short-form video content (15–60s) for TikTok, Instagram Reels, and other social platforms. Full pipeline from concept to publishing.
+
+**Service #2: Creative & Experimental Work** — Artistic collaborations, passion projects, and experimental films that push creative boundaries.
 
 ## How to Add New Projects
 
@@ -58,11 +66,10 @@ src/
   category: { is: "Flokkur", en: "Category" },
   thumbnail: "/projects/your-image.jpg",
   videoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-  // or: "https://player.vimeo.com/video/VIDEO_ID"
 }
 ```
 
-3. The project will automatically appear on both the homepage (if in the first 4) and the portfolio page.
+3. The project will automatically appear on the homepage (first 3 shown) and portfolio page.
 
 ## How to Modify Bilingual Content
 
@@ -75,7 +82,7 @@ All text content lives in `src/lib/translations.ts`. Each translatable string fo
 }
 ```
 
-To add new content, add entries to the `translations` object with both `is` and `en` keys, then use `t(translations.your.key)` in components via the `useLanguage()` hook.
+Use `t(translations.your.key)` in components via the `useLanguage()` hook.
 
 ## How to Connect the Contact Form
 
@@ -113,17 +120,27 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 Create `src/app/api/contact/route.ts` and handle the form server-side.
 
-## Design System
+## Design System — Northern Lights
 
-### Color Palette (Icelandic Landscape)
+### Color Palette
 
 | Color | Hex | Tailwind Class | Usage |
 |-------|-----|---------------|-------|
-| Glacial Blue | `#8fb8ca` | `bg-glacial`, `text-glacial` | Primary accent |
-| Lava Black | `#1a1a1a` | `bg-lava-black`, `text-lava-black` | Text, dark sections |
-| Lava Red | `#c23b22` | `bg-lava-red`, `text-lava-red` | CTAs, error states |
-| Moss Green | `#5a7247` | `bg-moss`, `text-moss` | Secondary accent, success |
-| Ice White | `#f5f5f0` | `bg-ice-white`, `text-ice-white` | Backgrounds |
+| Void | `#0A0A0A` | `bg-void` | Deepest background |
+| Night | `#111115` | `bg-night` | Alternate section background |
+| Surface | `#1A1A1F` | `bg-surface` | Cards, inputs |
+| Fire | `#FF6B35` | `text-fire`, `bg-fire` | Primary accent — CTAs, Service #1 |
+| Ice | `#00D9FF` | `text-ice`, `bg-ice` | Secondary accent — Service #2, focus states |
+| Aurora | `#B794F6` | `text-aurora`, `bg-aurora` | Tertiary — where fire meets ice |
+| Ice White | `#F8F9FA` | `text-ice-white` | Body text |
+
+### Glow Effects
+
+- `glow-fire` / `glow-fire-sm` — Fire orange box-shadow
+- `glow-ice` / `glow-ice-sm` — Ice cyan box-shadow
+- `orb-fire` / `orb-ice` / `orb-aurora` — Radial gradient backgrounds
+- `aurora-line` — Gradient line (fire → purple → ice)
+- `text-glow-fire` / `text-glow-ice` — Text shadow glows
 
 ### Typography
 
