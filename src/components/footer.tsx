@@ -15,7 +15,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-lava-black text-ice-white">
+    <footer className="bg-lava-black-deep text-ice-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}

@@ -6,6 +6,8 @@
   --color-glacial-dark: #6BAABF;
   --color-lava-black: #2E3440;
   --color-lava-black-deep: #242933;
+  --color-surface: #3B4252;
+  --color-surface-light: #434C5E;
   --color-lava-red: #BF616A;
   --color-lava-red-dark: #A3505A;
   --color-moss: #A3BE8C;
@@ -21,8 +23,8 @@ html {
 }
 
 body {
-  background: var(--color-ice-white);
-  color: var(--color-lava-black);
+  background: var(--color-lava-black);
+  color: var(--color-ice-white);
   font-family: var(--font-sans);
 }
 
@@ -31,10 +33,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ice-white);
+  background: var(--color-lava-black-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-glacial);
+  background: var(--color-surface-light);
   border-radius: 3px;
 }
 
