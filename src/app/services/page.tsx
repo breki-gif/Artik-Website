@@ -39,13 +39,13 @@ export default function ServicesPage() {
                   <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-ice-white">
                     {t(translations.services.commercial.title)}
                   </h2>
-                  <p className="text-sm text-ice-white/40 mt-1">
+                  <p className="text-sm text-ice-white/50 mt-1">
                     {t(translations.services.commercial.subtitle)}
                   </p>
                 </div>
               </div>
 
-              <p className="text-ice-white/60 leading-relaxed max-w-3xl">
+              <p className="text-ice-white/70 leading-relaxed max-w-3xl">
                 {t(translations.services.commercial.description)}
               </p>
 
@@ -72,13 +72,13 @@ export default function ServicesPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {translations.services.commercial.pipelineSteps.map((step, i) => (
                     <div key={i} className="bg-lava-black/60 rounded-lg p-5 border border-ice-white/5">
-                      <div className="text-xs font-bold text-glacial mb-2">
+                      <div className="text-xs font-bold text-ember mb-2">
                         {String(i + 1).padStart(2, "0")}
                       </div>
                       <h4 className="font-semibold text-sm text-ice-white mb-3">{t(step.title)}</h4>
                       <ul className="space-y-1.5">
                         {t(step.items).map((item, j) => (
-                          <li key={j} className="text-xs text-ice-white/40 flex items-start gap-2">
+                          <li key={j} className="text-xs text-ice-white/50 flex items-start gap-2">
                             <span className="text-glacial/60 mt-0.5 shrink-0">&bull;</span>
                             {item}
                           </li>
@@ -106,8 +106,8 @@ export default function ServicesPage() {
           <ScrollReveal>
             <div className="p-8 lg:p-12 bg-surface/50 rounded-2xl border border-ice-white/5">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-lava-red/10 flex items-center justify-center shrink-0">
-                  <svg className="w-6 h-6 text-lava-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <div className="w-12 h-12 rounded-full bg-ember/10 flex items-center justify-center shrink-0">
+                  <svg className="w-6 h-6 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
                   </svg>
                 </div>
@@ -115,13 +115,13 @@ export default function ServicesPage() {
                   <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-ice-white">
                     {t(translations.services.creative.title)}
                   </h2>
-                  <p className="text-sm text-ice-white/40 mt-1">
+                  <p className="text-sm text-ice-white/50 mt-1">
                     {t(translations.services.creative.subtitle)}
                   </p>
                 </div>
               </div>
 
-              <p className="text-ice-white/60 leading-relaxed max-w-3xl">
+              <p className="text-ice-white/70 leading-relaxed max-w-3xl">
                 {t(translations.services.creative.description)}
               </p>
 
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                   <ul className="space-y-3">
                     {t(translations.services.creative.items).map((item, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm text-ice-white/60">
-                        <div className="w-1.5 h-1.5 rounded-full bg-lava-red shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -158,7 +158,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Ideal for */}
-              <div className="mt-8 p-4 bg-lava-red/5 rounded-lg border border-lava-red/10">
+              <div className="mt-8 p-4 bg-ember/5 rounded-lg border border-ember/10">
                 <p className="text-sm text-ice-white/50 italic">
                   {t(translations.services.creative.idealFor)}
                 </p>
@@ -175,7 +175,7 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ice-white">
               {t(translations.services.process.heading)}
             </h2>
-            <p className="mt-4 text-lg text-ice-white/40 max-w-xl">
+            <p className="mt-4 text-lg text-ice-white/50 max-w-xl">
               {t(translations.services.process.subtitle)}
             </p>
           </ScrollReveal>
@@ -184,11 +184,11 @@ export default function ServicesPage() {
             {translations.services.process.steps.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div className="relative">
-                  <div className="text-5xl font-bold text-glacial/15 mb-4">
+                  <div className="text-5xl font-bold text-ember/20 mb-4">
                     {step.number}
                   </div>
                   <h3 className="text-lg font-semibold text-ice-white">{t(step.title)}</h3>
-                  <p className="mt-2 text-ice-white/40 text-sm leading-relaxed">
+                  <p className="mt-2 text-ice-white/50 text-sm leading-relaxed">
                     {t(step.description)}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ export default function ServicesPage() {
           </div>
 
           <ScrollReveal delay={0.4}>
-            <p className="mt-16 text-center text-lg font-medium text-glacial">
+            <p className="mt-16 text-center text-lg font-medium text-ember">
               {t(translations.services.process.tagline)}
             </p>
           </ScrollReveal>
@@ -221,7 +221,7 @@ export default function ServicesPage() {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-block px-8 py-3.5 bg-lava-red text-ice-white font-medium tracking-wide rounded-full hover:bg-lava-red-dark transition-colors duration-300"
+                className="inline-block px-8 py-3.5 bg-ember text-ice-white font-medium tracking-wide rounded-full hover:bg-ember-dark transition-colors duration-300"
               >
                 {t(translations.services.cta.button)}
               </Link>
