@@ -101,14 +101,22 @@ export default function ContactPage() {
     }));
   };
 
+  const inputClasses = (hasError?: string) =>
+    `w-full px-4 py-3 bg-surface/50 border rounded-lg text-ice-white placeholder:text-ice-white/25 focus:outline-none focus:ring-2 focus:ring-glacial/40 transition-colors ${
+      hasError ? "border-lava-red" : "border-ice-white/10"
+    }`;
+
+  const selectClasses =
+    "w-full px-4 py-3 bg-surface/50 border border-ice-white/10 rounded-lg text-ice-white focus:outline-none focus:ring-2 focus:ring-glacial/40 transition-colors";
+
   return (
-    <section className="pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-lava-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <ScrollReveal>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ice-white">
             {t(translations.contact.heading)}
           </h1>
-          <p className="mt-4 text-lg text-lava-black/60 max-w-xl">
+          <p className="mt-4 text-lg text-ice-white/50 max-w-xl">
             {t(translations.contact.subtitle)}
           </p>
         </ScrollReveal>
@@ -120,7 +128,7 @@ export default function ContactPage() {
               {/* Name & Email row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.name)} *
                   </label>
                   <input
@@ -130,14 +138,12 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder={t(translations.contact.form.namePlaceholder)}
-                    className={`w-full px-4 py-3 bg-ice-white-dark/50 border rounded-lg text-lava-black placeholder:text-lava-black/30 focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors ${
-                      errors.name ? "border-lava-red" : "border-lava-black/10"
-                    }`}
+                    className={inputClasses(errors.name)}
                   />
                   {errors.name && <p className="mt-1.5 text-sm text-lava-red">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.email)} *
                   </label>
                   <input
@@ -147,9 +153,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={t(translations.contact.form.emailPlaceholder)}
-                    className={`w-full px-4 py-3 bg-ice-white-dark/50 border rounded-lg text-lava-black placeholder:text-lava-black/30 focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors ${
-                      errors.email ? "border-lava-red" : "border-lava-black/10"
-                    }`}
+                    className={inputClasses(errors.email)}
                   />
                   {errors.email && <p className="mt-1.5 text-sm text-lava-red">{errors.email}</p>}
                 </div>
@@ -157,7 +161,7 @@ export default function ContactPage() {
 
               {/* Company */}
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-lava-black/80 mb-2">
+                <label htmlFor="company" className="block text-sm font-medium text-ice-white/70 mb-2">
                   {t(translations.contact.form.company)}
                 </label>
                 <input
@@ -167,14 +171,14 @@ export default function ContactPage() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder={t(translations.contact.form.companyPlaceholder)}
-                  className="w-full px-4 py-3 bg-ice-white-dark/50 border border-lava-black/10 rounded-lg text-lava-black placeholder:text-lava-black/30 focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors"
+                  className={inputClasses()}
                 />
               </div>
 
               {/* Project Type & Timeline row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="projectType" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.projectType)} *
                   </label>
                   <select
@@ -182,7 +186,7 @@ export default function ContactPage() {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-ice-white-dark/50 border border-lava-black/10 rounded-lg text-lava-black focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors"
+                    className={selectClasses}
                   >
                     <option value="">—</option>
                     {t(translations.contact.form.projectTypes).map((type) => (
@@ -191,7 +195,7 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="timeline" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.timeline)}
                   </label>
                   <select
@@ -199,7 +203,7 @@ export default function ContactPage() {
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-ice-white-dark/50 border border-lava-black/10 rounded-lg text-lava-black focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors"
+                    className={selectClasses}
                   >
                     <option value="">—</option>
                     {t(translations.contact.form.timelineOptions).map((opt) => (
@@ -211,7 +215,7 @@ export default function ContactPage() {
 
               {/* Platforms */}
               <div>
-                <label className="block text-sm font-medium text-lava-black/80 mb-3">
+                <label className="block text-sm font-medium text-ice-white/70 mb-3">
                   {t(translations.contact.form.platforms)}
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -222,8 +226,8 @@ export default function ContactPage() {
                       onClick={() => handlePlatformToggle(platform)}
                       className={`px-4 py-2 text-sm rounded-full border transition-colors duration-200 ${
                         formData.platforms.includes(platform)
-                          ? "bg-lava-black text-ice-white border-lava-black"
-                          : "border-lava-black/20 text-lava-black/60 hover:border-lava-black/40"
+                          ? "bg-glacial text-lava-black border-glacial"
+                          : "border-ice-white/15 text-ice-white/50 hover:border-ice-white/30"
                       }`}
                     >
                       {platform}
@@ -235,7 +239,7 @@ export default function ContactPage() {
               {/* Budget & Language row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.budget)}
                   </label>
                   <select
@@ -243,7 +247,7 @@ export default function ContactPage() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-ice-white-dark/50 border border-lava-black/10 rounded-lg text-lava-black focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors"
+                    className={selectClasses}
                   >
                     <option value="">—</option>
                     {t(translations.contact.form.budgetOptions).map((opt) => (
@@ -252,7 +256,7 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="language" className="block text-sm font-medium text-lava-black/80 mb-2">
+                  <label htmlFor="language" className="block text-sm font-medium text-ice-white/70 mb-2">
                     {t(translations.contact.form.language)}
                   </label>
                   <select
@@ -260,7 +264,7 @@ export default function ContactPage() {
                     name="language"
                     value={formData.language}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-ice-white-dark/50 border border-lava-black/10 rounded-lg text-lava-black focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors"
+                    className={selectClasses}
                   >
                     {t(translations.contact.form.languageOptions).map((lang) => (
                       <option key={lang} value={lang}>{lang}</option>
@@ -271,7 +275,7 @@ export default function ContactPage() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-lava-black/80 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-ice-white/70 mb-2">
                   {t(translations.contact.form.message)} *
                 </label>
                 <textarea
@@ -281,9 +285,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder={t(translations.contact.form.messagePlaceholder)}
-                  className={`w-full px-4 py-3 bg-ice-white-dark/50 border rounded-lg text-lava-black placeholder:text-lava-black/30 focus:outline-none focus:ring-2 focus:ring-glacial/50 transition-colors resize-none ${
-                    errors.message ? "border-lava-red" : "border-lava-black/10"
-                  }`}
+                  className={`${inputClasses(errors.message)} resize-none`}
                 />
                 {errors.message && <p className="mt-1.5 text-sm text-lava-red">{errors.message}</p>}
               </div>
@@ -292,7 +294,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="px-8 py-3.5 bg-lava-black text-ice-white font-medium tracking-wide rounded-full hover:bg-lava-black/80 disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+                className="px-8 py-3.5 bg-glacial text-lava-black font-medium tracking-wide rounded-full hover:bg-glacial-light disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
               >
                 {status === "sending"
                   ? t(translations.contact.form.sending)
@@ -324,36 +326,36 @@ export default function ContactPage() {
           <ScrollReveal direction="right" className="lg:col-span-1">
             <div className="space-y-8">
               <div>
-                <h3 className="text-sm font-medium tracking-wider uppercase text-lava-black/40 mb-3">
+                <h3 className="text-sm font-medium tracking-wider uppercase text-ice-white/30 mb-3">
                   {t(translations.contact.info.emailLabel)}
                 </h3>
                 <a
                   href={`mailto:${translations.contact.info.emailValue}`}
-                  className="text-lg text-glacial-dark hover:text-lava-black transition-colors duration-200"
+                  className="text-lg text-glacial hover:text-glacial-light transition-colors duration-200"
                 >
                   {translations.contact.info.emailValue}
                 </a>
               </div>
 
               <div>
-                <h3 className="text-sm font-medium tracking-wider uppercase text-lava-black/40 mb-3">
+                <h3 className="text-sm font-medium tracking-wider uppercase text-ice-white/30 mb-3">
                   {t(translations.contact.info.locationLabel)}
                 </h3>
-                <p className="text-lg text-lava-black/70">
+                <p className="text-lg text-ice-white/60">
                   {t(translations.contact.info.locationValue)}
                 </p>
               </div>
 
-              <div className="mt-8 aspect-square bg-gradient-to-br from-glacial/15 via-ice-white-dark to-moss/10 rounded-xl flex items-center justify-center">
+              <div className="mt-8 aspect-square bg-gradient-to-br from-glacial/8 via-surface to-moss/5 rounded-xl flex items-center justify-center border border-ice-white/5">
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-lava-black/10 mb-2">64&deg;N</p>
-                  <p className="text-sm text-lava-black/30 tracking-wider">
+                  <p className="text-4xl font-bold text-ice-white/8 mb-2">64&deg;N</p>
+                  <p className="text-sm text-ice-white/20 tracking-wider">
                     Reykjav&iacute;k
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs text-lava-black/30 italic">
+              <p className="text-xs text-ice-white/25 italic">
                 {t({
                   is: "Við svörum yfirleitt innan 24 klukkustunda.",
                   en: "We typically respond within 24 hours.",
