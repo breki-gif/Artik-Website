@@ -18,6 +18,11 @@ export default function LandingPage() {
           Artik
         </h1>
 
+        {/* Tagline */}
+        <p className="mt-3 text-sm tracking-[0.2em] text-[#888888]">
+          {t(translations.landing.tagline)}
+        </p>
+
         {/* CTA */}
         <Link
           href="/contact"

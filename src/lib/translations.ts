@@ -2,6 +2,7 @@ export type Locale = "is" | "en";
 
 export const translations = {
   landing: {
+    tagline: { is: "Skapandi framleiðslustofa", en: "Creative production studio" },
     cta: { is: "HAFA SAMBAND", en: "GET IN TOUCH" },
   },
   contact: {
