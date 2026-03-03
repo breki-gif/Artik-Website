@@ -38,7 +38,7 @@ export const translations = {
       en: "Something went wrong. Please try again.",
     },
     info: {
-      email: "hello@artik.is",
+      email: "artik@artik.is",
       location: { is: "Reykjavík, Ísland", en: "Reykjavík, Iceland" },
     },
   },
